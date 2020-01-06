@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="sm" class="navbar-inner">
+    <b-navbar toggleable="sm" sticky class="navbar-inner">
       <!-- <b-navbar-brand href="#">NavBar</b-navbar-brand> -->
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -16,8 +16,14 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <div>
+    <div style="margin-top:-2px">
       <b-img src="@/assets/img/banner.png" fluid-grow alt="Fluid-grow image"></b-img>
+    </div>
+    <div style="height:150px;background-color:#ffd000;text-align: center;">
+      <div >
+      <label class="mt-5 font1">OTTEN 32 RUN</label>
+      </div>
+
     </div>
   </div>
 </template>

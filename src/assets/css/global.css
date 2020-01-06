@@ -1,0 +1,7 @@
+@font-face {
+    font-family: HeyLucky;
+    src: url(./fonts/HeyLucky.ttf);
+  }
+.font1 {
+    font-family: 'HeyLucky';
+}
