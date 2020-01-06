@@ -1,47 +1,53 @@
-<template>
-  <div>
-    <b-navbar toggleable="sm" sticky class="navbar-inner">
-      <!-- <b-navbar-brand href="#">NavBar</b-navbar-brand> -->
-
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
-      <b-collapse id="nav-collapse" is-nav>
-        <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto">
-          <b-nav-item href="#">HOME</b-nav-item>
-          <b-nav-item href="#">TENTANG OTTEN32RUN</b-nav-item>
-          <b-nav-item href="#">INFORMASI UMUM</b-nav-item>
-          <b-nav-item href="#">PENDAFTARAN</b-nav-item>
-          <b-nav-item href="#">CONTACT US</b-nav-item>
-        </b-navbar-nav>
-      </b-collapse>
-    </b-navbar>
-    <div style="margin-top:-2px">
-      <b-img src="@/assets/img/banner.png" fluid-grow alt="Fluid-grow image"></b-img>
-    </div>
-    <div style="height:150px;background-color:#ffd000;text-align: center;">
-      <div >
-      <label class="mt-5 font1">OTTEN 32 RUN</label>
-      </div>
-
-    </div>
-  </div>
+<template src="./landingpage.html">
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
+import jQuery from 'jquery'
+global.jQuery = jQuery
+global.$ = jQuery
 export default {
-  name: "home",
-  components: {
-    HelloWorld
-  }
-};
-</script>
+    name: 'landingpage',
+    data () {
+        return {
+            
+        }
+    },
 
-<style>
-.navbar-inner {
-    background-color:#ffd000;
+    created() {
+        // let Popper = document.createElement('script');    
+        // Popper.setAttribute('src',"statics/js/plugins/popper/popper.min.js");
+        // document.body.appendChild(Popper);
+        
+        // let bootstrapJs = document.createElement('script');    
+        // bootstrapJs.setAttribute('src',"statics/js/bootstrap.js");
+        // document.body.appendChild(bootstrapJs);
+
+        // let metisMenu = document.createElement('script');    
+        // metisMenu.setAttribute('src',"statics/js/plugins/metisMenu/jquery.metisMenu.js");
+        // document.body.appendChild(metisMenu);
+
+        // let slimScroll = document.createElement('script');    
+        // slimScroll.setAttribute('src',"statics/js/plugins/slimscroll/jquery.slimscroll.min.js");
+        // document.body.appendChild(slimScroll);
+
+        // let Inspinia = document.createElement('script');    
+        // Inspinia.setAttribute('src',"statics/js/inspinia.js");
+        // document.body.appendChild(Inspinia);
+
+        // let Wow = document.createElement('script');    
+        // Wow.setAttribute('src',"statics/js/plugins/wow/wow.min.js");
+        // document.body.appendChild(Wow);
+        
+        // let Pace = document.createElement('script');    
+        // Pace.setAttribute('src',"statics/js/plugins/pace/pace.min.js");
+        // document.body.appendChild(Pace);
+
+        // let landing = document.createElement('script');    
+        // landing.setAttribute('src',"statics/js/landing.js");
+        // document.body.appendChild(landing);
+
+        //EndJs
+    },
+
 }
-</style>
+</script>

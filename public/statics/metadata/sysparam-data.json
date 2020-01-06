@@ -1,0 +1,39 @@
+{
+  "status": "SUCCESS",
+  "data": {
+    "index": 1,
+    "size": 10,
+    "total": 1,
+    "records": 4,
+    "data": [
+      {
+        "id": {
+          "systemCode": "TEKNO",
+          "paramCode": 1
+        },
+        "value": "xxxxxxxxx",
+        "description": "Deskripi"
+      },
+      {
+        "id": {
+          "systemCode": "TEKNO",
+          "paramCode": 2
+        },
+        "value": "menu.vue",
+        "description": "Redirect dashboard",
+        "organisation": {
+          "name": "TEKNOGLOBAL",
+          "group": "Paramas"
+        }
+      },
+      {
+        "id": {
+          "systemCode": "PBK",
+          "paramCode": 5
+        },
+        "value": "BiroKredit",
+        "description": "Nama kolom"
+      }
+    ]
+  }
+}

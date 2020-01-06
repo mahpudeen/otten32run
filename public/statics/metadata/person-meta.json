@@ -1,0 +1,259 @@
+{
+    "title": "TEKNO",    
+    "action": {
+        "add": true,
+        "edit": true,
+        "save": true,
+        "delete": true,
+        "view": true
+    },
+    "rows": [
+        10,
+        20,
+        30,
+        40,
+        50         
+    ],
+    "export": {
+        "pdf": true,
+        "copy": true,
+        "csv": true,
+        "excel": true,
+        "print": true
+    },
+    "table": {
+        "items": [
+            {
+                "header": "ID",
+                "column": "id",
+                "align": {
+                    "header": "center",
+                    "column": "left"
+                }
+            },
+            {
+                "header": "Nama",
+                "column": "name",
+                "align": {
+                    "header": "center",
+                    "column": "left"
+                }
+            },
+            {
+                "header": "Birth",
+                "column": "birth",
+                "align": {
+                    "header": "left",
+                    "column": "center"
+                }
+            },
+            {
+                "header": "Organisasi",
+                "column": "organisation",
+                "align": {
+                    "header": "left",
+                    "column": "left"
+                }
+            },
+            {
+                "header": "Alamat",
+                "column": "address",
+                "align": {
+                    "header": "left",
+                    "column": "left"
+                }
+            },
+            {
+                "header": "Email",
+                "column": "email",
+                "align": {
+                    "header": "left",
+                    "column": "left"
+                }
+            },
+            {
+                "header": "Kelamin",
+                "column": "sex",
+                "align": {
+                    "header": "center",
+                    "column": "center"
+                }
+            },
+            {
+                "header": "Aktif",
+                "column": "active",
+                "align": {
+                    "header": "center",
+                    "column": "center"
+                }
+            },
+            {
+                "header": "Status",
+                "column": "status",
+                "align": {
+                    "header": "center",
+                    "column": "right"
+                }
+            }
+        ],
+        "footer": false,
+        "multiselect": true
+    },
+    "order": {
+        "type": "single",
+        "items": [
+            {
+             "label": "Nama",
+             "column": "name",
+             "desc": true
+            },
+            {
+             "label": "Status",
+             "column": "status",
+             "desc": false
+            }
+        ]
+    },
+    "filter": {
+        "type": "single",
+        "column": 2,
+        "items": [
+            {
+                "label": "Nama",
+                "column": "name",
+                "condition": "anylike",
+                "and": true
+            },
+            {
+                "label": "Status",
+                "column": "status",
+                "condition": "eq",
+                "and": true
+            }
+        ]
+    },
+    "id": "id",
+    "columns": {
+        "id": {
+            "label": "ID",
+            "controlType": "",
+            "align": "left",
+            "editable": false,
+            "insertable": false,
+            "visible": true,
+            "readOnly": true,
+            "required": true,
+            "defaultValue": "",
+            "sort": 0
+        },
+        "name": {
+            "label": "Nama",
+            "controlType": "text",
+            "align": "left",
+            "editable": true,
+            "insertable": true,
+            "visible": true,
+            "required": true,
+            "defaultValue": "",
+            "sort": 1
+        },
+        "birth": {
+            "label": "Birth",
+            "controlType": "date",
+            "align": "center",
+            "editable": true,
+            "insertable": true,
+            "visible": true,
+            "required": true,
+            "defaultValue": "",
+            "sort": 2
+        },
+        "organisation": {
+            "label": "Organisasi",
+            "controlType": "text",
+            "align": "left",
+            "editable": true,
+            "insertable": true,
+            "visible": true,
+            "required": true,
+            "defaultValue": "",
+            "sort": 3
+        },
+        "address": {
+            "label": "Alamat",
+            "controlType": "textarea",
+            "align": "left",
+            "editable": false,
+            "insertable": true,
+            "visible": true,
+            "readOnly": true,
+            "required": true,
+            "defaultValue": "",
+            "sort": 4
+        },
+        "email": {
+            "label": "Email",
+            "controlType": "email",
+            "align": "left",
+            "editable": true,
+            "insertable": true,
+            "visible": true,
+            "required": true,
+            "defaultValue": "",
+            "sort": 5
+        },
+        "sex": {
+            "label": "Kelamin",
+            "controlType": "select",
+            "align": "",
+            "editable": true,
+            "insertable": true,
+            "visible": true,
+            "required": true,
+            "options": [
+                {
+                    "label": "Pria",
+                    "value": 0
+                },
+                {
+                    "label": "Wanita",
+                    "value": 1
+                }
+            ],
+            "defaultValue": "1",
+            "sort": 6
+        },
+        "active": {
+            "label": "Aktif",
+            "controlType": "select",
+            "align": "",
+            "editable": true,
+            "insertable": true,
+            "visible": true,
+            "required": true,
+            "options": [
+                {
+                    "label": "Ya",
+                    "value": 1
+                },
+                {
+                    "label": "Tidak",
+                    "value": 0
+                }
+            ],
+            "defaultValue": "0",
+            "sort": 7
+        },
+        "status": {
+            "label": "status",
+            "controlType": "text",
+            "align": "right",
+            "editable": true,
+            "insertable": true,
+            "visible": true,
+            "required": true,
+            "defaultValue": "",
+            "sort": 8
+        }
+    }
+}

@@ -1,0 +1,166 @@
+.grid {
+	padding: 0px !important;
+	margin-top: 4px !important;
+}
+.grid .ibox-content {
+	padding: 8px;
+}
+.grid .ibox-title {
+	
+}
+.grid .q-table th, .grid .q-table td {
+	padding: 4px;
+}
+.grid .table-control {
+	width: 100%;
+}
+.grid .table-control td {
+	vertical-align: top;
+	padding: 0px;
+	font-weight: plain;
+}
+.grid .table-control td .btn-search {
+	vertical-align: middle;
+	border: none;
+}
+.grid .table-control .btn {
+	margin-right: 2px;
+}
+.grid .table-control .separator {
+	margin: 0px 6px;
+}
+.grid .custom-control {
+	background: none !important;
+}
+.grid button {
+	cursor: pointer;
+}
+.grid .input-group-addon {
+	padding: 0px !important;
+}
+.grid .padleft0{
+	padding-left: 0px !important;
+}
+.grid .padright0{
+	padding-right: 0px !important;
+}
+.grid .row-pager {
+	margin-top: 15px;
+	margin-bottom: 2px;
+}
+.grid .align-left {
+	text-align: left;
+}
+.grid .align-center {
+	text-align: center;
+}
+.grid .align-right {
+	text-align: right;
+}
+.grid .modal-body {
+	max-height: 400px;
+	overflow-y: auto;
+	padding: 2px 2px 2px 2px;
+	font-size: 11px;
+}
+.grid .modal-body, .grid .form-control {
+	font-size: 11px;
+}
+.grid .modal-header {
+	padding: 8px;
+}
+.grid .modal-footer {
+	padding: 4px;
+}
+.grid .form-search {
+	margin-bottom: 0px;
+}
+.grid .form-tool {
+	margin-bottom: 1px;
+	padding: 0px;
+}
+.grid .form-tool .btn-action, .grid .form-tool .btn-action:hover {
+	color: #ffffff;
+}
+.grid .form-tool .btn-export, .grid .form-tool .btn-export:hover {
+
+}
+.grid .td-action {
+	padding: 5px 0px 5px 0px;	
+}
+.grid .td-action table td{
+	padding: 0px;
+	margin: 0px;	
+	border: none;
+}
+.grid .g-table {
+	font-size: 11px;
+	margin-bottom: 0px;
+}
+.grid .g-table .g-th {
+	background-color: #21b9bb !important;
+	color: #ffffff;
+}
+.grid .g-table .btn {
+	margin: 1px;
+	padding: 1px;
+	font-size: 10px; 
+	width: 18px;
+}
+.grid .g-table .btn, .grid .g-table .btn:hover {
+	color: #ffffff;
+}
+.grid .html5buttons {
+	float: none;
+}
+.grid .bg-modal-strip {
+	background-color: rgba(0,0,0,.05);
+}
+.grid .row-edit-div {
+	margin-bottom: 0px;
+}
+.grid .row-edit-label {
+	font-weight: bold;
+	margin-bottom: 0px;
+	margin-right: 0px;
+	margin-left: 0px;	
+}
+.grid .row-edit-control {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+
+/**
+ * SPINNER
+ */
+.grid .sk-spinner-wave div {
+  background-color: #1ab394;
+  margin-right: 4px;
+}
+
+
+
+.sticky-table {
+	border: 0px;
+}
+.sticky-table thead th {
+    white-space: nowrap;
+}
+.sticky-table tbody td {
+    padding: 0px;    
+    white-space: nowrap;
+}
+.sticky-wrapper {
+    position: relative;
+}
+.sticky-scroller {
+    margin-left: 66px;
+    overflow-x: auto;
+    overflow-y: auto;
+    padding-bottom: 0px;
+}
+.sticky-table .sticky-col {
+	left: 0;
+    position: absolute;
+    width: 72px;
+}

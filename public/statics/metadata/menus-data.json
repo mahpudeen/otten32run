@@ -1,0 +1,33 @@
+{
+    "status": "SUCCESS",
+    "data": {
+        "index": 1,
+        "size": 10,
+        "data": [
+            {
+                "menuId": 23,
+                "menuCode": "menus",
+                "menuName": "Upload Dokumen syahrul",
+                "menuUrl": "/page",
+                "isUsedFlag": "string",
+                "menuTypeFlag": "N",
+                "deleteFlag": "N",
+                "createdDatetime": "2011-12-08",
+                "menuIcon": "subtitles"
+            },
+            {
+                "menuId": 24,
+                "menuCode": "Ramadan",
+                "menuName": "Syahrul",
+                "menuUrl": "/page",
+                "isUsedFlag": "string",
+                "menuTypeFlag": "Y",
+                "deleteFlag": "N",
+                "createdDatetime": "2019-12-02",
+                "updatedDatetime": "2019-12-02",
+                "menuIcon": "subtitles"
+            }
+        ],
+        "count": false
+    }
+}

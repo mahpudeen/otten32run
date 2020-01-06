@@ -1,0 +1,55 @@
+{
+  "status": "SUCCESS",
+  "data": {
+    "index": 1,
+    "size": 10,
+    "total": 1,
+    "records": 4,
+    "data": [
+      {
+        "id": 1,
+        "name": "Test",
+        "birth": "2011-12-08",
+        "organisation": "TEKNO",
+        "address": "Saharjo 113",
+        "email": "test@teknoglobal.co.id",
+        "sex": 0,
+        "active": 1,
+        "status": 2
+      },
+      {
+        "id": 2,
+        "name": "Coba",
+        "birth": "2009-10-01",
+        "organisation": "TEKNO",
+        "address": "Saharjo 113",
+        "email": "coba@teknoglobal.co.id",
+        "sex": 1,
+        "active": 0,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "name": "Amir",
+        "birth": "2010-10-10",
+        "organisation": "TEKNO",
+        "address": "Saharjo 113",
+        "email": "amir@teknoglobal.co.id",
+        "sex": 0,
+        "active": 1,
+        "status": 3
+      },
+      {
+        "id": 4,
+        "name": "Nova",
+        "birth": "2003-03-03",
+        "organisation": "TEKNO",
+        "address": "Saharjo 113",
+        "email": "nova@teknoglobal.co.id",
+        "sex": 1,
+        "active": 1,
+        "status": 3
+      }
+    ]
+  }
+}
