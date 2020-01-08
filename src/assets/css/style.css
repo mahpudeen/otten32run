@@ -1,3 +1,11 @@
+.landing-page .navbar-default .navbar-brand {
+  	color: #14264c !important;
+    background: #fec013 !important;
+}
+.landing-page .navbar-default .navbar-nav > li .nav-link.active, .landing-page .navbar-default .navbar-nav > li .nav-link.active:hover {
+  border-top: 6px solid #fec013 !important;
+}
+
 /*
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,300,500,700");
@@ -1419,7 +1427,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
 .top-navigation .nav > li a:hover,
 .top-navigation .nav > li a:focus {
   background: #fff;
-  color: #092d5b;
+   color:#092d5b; 
 }
 .top-navigation .navbar .nav > li.active {
   background: #fff;
