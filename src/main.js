@@ -5,14 +5,10 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 
-
-
-
 import '@/assets/css/bootstrap.min.css'
 import '@/assets/css/animate.css'
 import '@/assets/css/fonts/awesome_2/css/font-awesome.min.css'
 import '@/assets/css/style.css'
-
 
 import jQuery from 'jquery'
 global.jQuery = jQuery
