@@ -1494,6 +1494,11 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   padding: 10px 15px 10px 20px;
 }
 @media (max-width: 768px) {
+  .bannertop {
+    margin-top: 50px;
+  }
+}
+@media (max-width: 768px) {
   .top-navigation .navbar-header {
     display: block;
     float: none;
@@ -7914,7 +7919,7 @@ body.landing-page {
 .landing-page .navy-line {
   width: 60px;
   height: 1px;
-  margin: 60px auto 0;
+  margin: 30px auto 0;
   border-bottom: 2px solid #092d5b;
 }
 .landing-page .navbar {
@@ -8038,6 +8043,9 @@ body.landing-page {
   font-size: 12px;
   padding: 10px;
   height: auto;
+}
+.landing-page .mar-bottom {
+  padding-bottom: 50px;
 }
 .landing-page .header-back {
   height: 470px;
@@ -8218,6 +8226,9 @@ body.landing-page {
   margin: 20px 30px 0 30px;
   border-radius: 4px;
 }
+.landing-page .bg-pricing {
+  background-color: #fec013;
+}
 .landing-page .pricing-plan.selected {
   transform: scale(1.1);
   background: #f4f4f4;
@@ -8240,10 +8251,16 @@ body.landing-page {
 .landing-page li.pricing-title {
   background: #092d5b;
   color: #fff;
-  padding: 10px;
-  border-radius: 4px 4px 0 0;
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 60;
+}
+.landing-page li.desc-acara {
+  background: #fff;
+  color: #000;
+}
+.landing-page li.desc-acara2 {
+  background: #f4f4f4;
+  color: #000;
 }
 .landing-page .testimonials {
   padding-top: 80px;
