@@ -73,7 +73,7 @@
               <input type="password" class="form-control" v-model="param.password_user" required />
             </div>
             <button @click="regisProcess()" class="btn btn-primary">Submit</button> &nbsp;
-            <button @click="resetForm()" class="btn btn-warning">Reset</button>
+            <button @click="resetForm()" class="btn btn-warning btn-reset">Reset</button>
           </div>
         </div>
       </div>
@@ -143,7 +143,6 @@
 </style>
 <script>
 import Swal from "sweetalert2";
-import axios from "axios";
 
 export default {
   data() {
@@ -177,7 +176,7 @@ export default {
         cancelButtonText: "Tidak!"
       }).then(result => {
         if (result.value) {
-          axios
+          self.$http
             .post("http://localhost/api/public/regis_user/", self.param)
             .then(function(datas) {
               return datas;

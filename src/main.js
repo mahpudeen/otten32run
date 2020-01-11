@@ -4,18 +4,19 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
-// import axios from 'axios';
-// const base = axios.create({
-//   baseURL: 'http://localhost/api/public'
-// });
-// Vue.prototype.$http = base;
+import axios from 'axios';
+const base = axios.create({
+  baseURL: 'http://localhost/api/public'
+});
+Vue.prototype.$http = base;
+
+import Swal from "sweetalert2";
 
 import '@/assets/css/bootstrap.min.css'
 import '@/assets/css/animate.css'
 import '@/assets/css/fonts/awesome_2/css/font-awesome.min.css'
 import '@/assets/css/style.css'
 
-const Swal = require('sweetalert2')
 
 import jQuery from 'jquery'
 global.jQuery = jQuery

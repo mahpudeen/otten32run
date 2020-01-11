@@ -73,7 +73,7 @@ export default {
   },
   beforeCreate() {
     let self = this;
-    axios
+    self.$http
       .get("http://localhost/api/public/data_users/")
       .then(function(datas) {
         return datas;
@@ -87,32 +87,6 @@ export default {
       });
   },
   methods: {
-    askDelete: function(e) {
-      console.log("ya", e.target.value);
-    },
-    sendInfo: function(item) {
-      this.selectedUser = item;
-      console.log("ya ini", this.selectedUser);
-    },
-    deleteData(id) {
-      let self = this;
-      console.log("hapus data", id);
-      let param = {
-        id_user: id
-      };
-      axios
-        .post("http://localhost/api/public/del_user/", param)
-        .then(function(datas) {
-          return datas;
-        })
-        .then(function(res) {
-          self.dataPeserta = self.dataPeserta.filter(idx => idx.id_user != id);
-          Swal.fire("Deleted!", "Data has been deleted.", "success");
-        })
-        .catch(function(err) {
-          console.log(err);
-        });
-    },
     deleteProcess(data) {
       let self = this;
       let param = {
@@ -128,7 +102,7 @@ export default {
         cancelButtonText: "Tidak!"
       }).then(result => {
         if (result.value) {
-          axios
+          self.$http
             .post("http://localhost/api/public/del_user/", param)
             .then(function(datas) {
               return datas;
