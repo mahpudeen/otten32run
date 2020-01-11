@@ -12,6 +12,11 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbar">
           <ul class="nav navbar-nav navbar-right">
             <li>
+              <a class="nav-link page-scroll" href="/login">
+                <div class="text">Login</div>
+              </a>
+            </li>
+            <li>
               <a class="nav-link page-scroll" href="#page-top">
                 <div class="text">Register</div>
               </a>
@@ -21,7 +26,7 @@
       </div>
     </nav>
   </div>
-  <div id="inSlider">
+  <div id="inSlider" class="bannertop">
     <b-img src="img/run.jpg" fluid-grow alt="Fluid-grow image"></b-img>
   </div>
 
@@ -72,8 +77,10 @@
               <label for="exampleInputPassword1">Password</label>
               <input type="password" class="form-control" v-model="param.password_user" required />
             </div>
-            <button @click="regisProcess()" class="btn btn-primary">Submit</button> &nbsp;
-            <button @click="resetForm()" class="btn btn-warning btn-reset">Reset</button>
+            <div style="text-align:center">
+              <b-button @click="regisProcess()" variant="warning">Submit</b-button> &nbsp;
+              <b-button @click="resetForm()" variant="danger">Reset</b-button>
+            </div>
           </div>
         </div>
       </div>
@@ -184,6 +191,8 @@ export default {
             .then(function(res) {
               Swal.fire("Berhasil!", "Data berhasil disimpan!", "success");
               self.resetForm();
+              self.$router.push("login");
+              // self.$router.push("admin");
             })
             .catch(function(err) {
               console.log(err);

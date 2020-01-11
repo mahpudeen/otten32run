@@ -240,7 +240,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      menus: []
+      mainProps : []
     };
   },
   methods: {

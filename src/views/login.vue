@@ -16,12 +16,17 @@
                 <div class="text">Login</div>
               </a>
             </li>
+            <li>
+              <a class="nav-link page-scroll" href="/register">
+                <div class="text">Register</div>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
   </div>
-  <div id="inSlider">
+  <div id="inSlider" class="bannertop">
     <b-img src="img/run.jpg" fluid-grow alt="Fluid-grow image"></b-img>
   </div>
 
@@ -57,7 +62,10 @@
                 <label for="exampleInputPassword1">Password</label>
                 <input type="password" class="form-control" v-model="param.password_user" />
               </div>
-              <button @click="loginProcess()" class="btn btn-primary">Login</button>
+              <div style="text-align:center">
+                <b-button @click="loginProcess()" variant="warning">Login</b-button> &nbsp;
+                <b-button @click="resetForm()" variant="danger">Reset</b-button>
+            </div>
           </div>
         </div>
       </div>
@@ -136,6 +144,12 @@ export default {
     };
   },
   methods: {
+    resetForm() {
+      this.param = {
+        email_user: "",
+        password_user: ""
+      };
+    },
     loginProcess() {
       let self = this;
       console.log(self.param)

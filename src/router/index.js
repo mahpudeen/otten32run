@@ -5,6 +5,7 @@ import layoutPage from '../components/layoutPage.vue'
 import Home from '../views/landingpage/landingpage.vue'
 import Register from '../views/register.vue'
 import Login from '../views/login.vue'
+import PDF from '../views/downloadpdf.vue'
 import Daftar_User from '../views/daftar_user.vue'
 import Daftar_Peserta from '../views/daftar_peserta.vue'
 import Landing_Admin from '../views/landing_admin.vue'
@@ -22,6 +23,7 @@ const routes = [
   {
     path: '/layout', component: layout, name: 'layout',
     children: [
+      { path: '/pdf', component: PDF},
       {
         path: '/admin',
         component: Landing_Admin
@@ -37,7 +39,7 @@ const routes = [
     ]
   },
   {
-    path: '', component: layoutPage, name: 'layoutPage',
+    path: '', component: layoutPage,
     children: [
       { path: '/about', component: About },
       { path: '/', name: 'home', component: Home },
