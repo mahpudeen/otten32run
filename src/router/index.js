@@ -6,6 +6,7 @@ import Home from '../views/landingpage/landingpage.vue'
 import Register from '../views/register.vue'
 import Login from '../views/login.vue'
 import Table from '../views/table.vue'
+import PDF from '../views/downloadpdf.vue'
 import About from '../views/about/about.vue'
 import Rules from '../views/rules/rules.vue'
 
@@ -18,7 +19,8 @@ const routes = [
   {
     path: '/layout', component: layout, name: 'layout',
     children: [
-      { path: '/admin', component: Table}
+      { path: '/admin', component: Table},
+      { path: '/pdf', component: PDF}
     ]
   },
   {
