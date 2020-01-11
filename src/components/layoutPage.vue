@@ -86,3 +86,13 @@
 </body>
 
 </template>
+<script>
+export default {
+    data() {
+    return {
+      mainProps : []
+    };
+  },
+    
+}
+</script>

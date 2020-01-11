@@ -19,53 +19,125 @@
               <img src="statics/images/logodjp.png" width="40px" height="40px" />
             </div>
           </li>
-          <li class="active">
-              <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
-              <ul class="nav nav-second-level">
-                  <li class="active"><a href="index.html">Dashboard v.1</a></li>
-                  <li><a href="dashboard_2.html">Dashboard v.2</a></li>
-              </ul>
+          <li class="oke">
+            <a href="#" @click="navigate('/admin')">
+              <i class="fa fa-th-large"></i>
+              <span class="nav-label">Dashboards</span>
+              <!-- <span class="fa arrow"></span> -->
+            </a>
+            <!-- <ul class="nav nav-second-level">
+              <li>
+                <a href="index.html">Dashboard v.1</a>
+              </li>
+              <li>
+                <a href="dashboard_2.html">Dashboard v.2</a>
+              </li>
+            </ul> -->
           </li>
-            <li>
-                <a href="metrics.html"><i class="fa fa-pie-chart"></i> <span class="nav-label">Metrics</span>  </a>
-            </li>
-  
-            <li>
-                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li><a href="graph_flot.html">Flot Charts</a></li>
-                    <li><a href="graph_morris.html">Morris.js Charts</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Mailbox </span><span class="label label-warning float-right">16/24</span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li><a href="mailbox.html">Inbox</a></li>
-                    <li><a href="mail_detail.html">Email view</a></li>
-                    <li><a href="mail_compose.html">Compose email</a></li>
-                    <li><a href="email_template.html">Email templates</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">App Views</span>  <span class="float-right label label-primary">SPECIAL</span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li><a href="contacts.html">Contacts</a></li>
-                    <li><a href="profile.html">Profile</a></li>
-                    <li><a href="profile_2.html">Profile v.2</a></li>
-                    <li><a href="contacts_2.html">Contacts v.2</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="project_detail.html">Project detail</a></li>
-                    <li><a href="pin_board.html">Pin board</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-globe"></i> <span class="nav-label">Miscellaneous</span><span class="label label-info float-right">NEW</span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li><a href="toastr_notifications.html">Notification</a></li>
-                    <li><a href="pdf_viewer.html">PDF viewer</a></li>
-                 <li><a href="tour.html">Tour</a></li>
-                </ul>
-            </li>
+          <li>
+            <a href="#" @click="navigate('/daftar_peserta')">
+              <i class="fa fa-users"></i>
+              <span class="nav-label">Daftar Peserta</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" @click="navigate('/daftar_user')">
+              <i class="fa fa-user"></i>
+              <span class="nav-label">Daftar User</span>
+            </a>
+          </li>
+          
+          <li>
+            <a href="metrics.html">
+              <i class="fa fa-pie-chart"></i>
+              <span class="nav-label">Metrics</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa fa-bar-chart-o"></i>
+              <span class="nav-label">Graphs</span>
+              <span class="fa arrow"></span>
+            </a>
+            <ul class="nav nav-second-level collapse">
+              <li>
+                <a href="graph_flot.html">Flot Charts</a>
+              </li>
+              <li>
+                <a href="graph_morris.html">Morris.js Charts</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="mailbox.html">
+              <i class="fa fa-envelope"></i>
+              <span class="nav-label">Mailbox</span>
+              <span class="label label-warning float-right">16/24</span>
+            </a>
+            <ul class="nav nav-second-level collapse">
+              <li>
+                <a href="mailbox.html">Inbox</a>
+              </li>
+              <li>
+                <a href="mail_detail.html">Email view</a>
+              </li>
+              <li>
+                <a href="mail_compose.html">Compose email</a>
+              </li>
+              <li>
+                <a href="email_template.html">Email templates</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-desktop"></i>
+              <span class="nav-label">App Views</span>
+              <span class="float-right label label-primary">SPECIAL</span>
+            </a>
+            <ul class="nav nav-second-level collapse">
+              <li>
+                <a href="contacts.html">Contacts</a>
+              </li>
+              <li>
+                <a href="profile.html">Profile</a>
+              </li>
+              <li>
+                <a href="profile_2.html">Profile v.2</a>
+              </li>
+              <li>
+                <a href="contacts_2.html">Contacts v.2</a>
+              </li>
+              <li>
+                <a href="projects.html">Projects</a>
+              </li>
+              <li>
+                <a href="project_detail.html">Project detail</a>
+              </li>
+              <li>
+                <a href="pin_board.html">Pin board</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-globe"></i>
+              <span class="nav-label">Miscellaneous</span>
+              <span class="label label-info float-right">NEW</span>
+            </a>
+            <ul class="nav nav-second-level collapse">
+              <li>
+                <a href="toastr_notifications.html">Notification</a>
+              </li>
+              <li>
+                <a href="pdf_viewer.html">PDF viewer</a>
+              </li>
+              <li>
+                <a href="tour.html">Tour</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </div>
     </nav>
@@ -83,7 +155,7 @@
               <div class="form-group">
                 <input
                   type="text"
-                  placeholder=""
+                  placeholder
                   class="form-control"
                   name="top-search"
                   id="top-search"
@@ -140,7 +212,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="ibox">
-            <!-- Router View -->
+              <!-- Router View -->
               <router-view />
             </div>
           </div>
@@ -151,14 +223,14 @@
 </template>
 <style>
 .mar20 {
-  margin-left: 20px
+  margin-left: 20px;
 }
 .mar-20 {
-  margin-left: -20px
+  margin-left: -20px;
 }
 .qlist {
-  color:#a7b1c2; 
-  width:220px;
+  color: #a7b1c2;
+  width: 220px;
 }
 </style>
 
@@ -168,17 +240,20 @@ import axios from "axios";
 export default {
   data() {
     return {
-      menus: [],
+      mainProps : []
     };
   },
   methods: {
-    logout: function () {
-        this.$session.destroy()
-        this.$router.push('/')
+    logout: function() {
+      this.$session.destroy();
+      this.$router.push("/");
     },
-    toHref: function(){
-      this.$router.push({ path: '/dashboard' })
+    toHref: function() {
+      this.$router.push({ path: "/dashboard" });
+    },
+    navigate: function(page) {
+      this.$router.push({ path: page })
     }
-  },
+  }
 };
 </script>

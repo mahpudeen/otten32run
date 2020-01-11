@@ -5,8 +5,10 @@ import layoutPage from '../components/layoutPage.vue'
 import Home from '../views/landingpage/landingpage.vue'
 import Register from '../views/register.vue'
 import Login from '../views/login.vue'
-import Table from '../views/table.vue'
 import PDF from '../views/downloadpdf.vue'
+import Daftar_User from '../views/daftar_user.vue'
+import Daftar_Peserta from '../views/daftar_peserta.vue'
+import Landing_Admin from '../views/landing_admin.vue'
 import About from '../views/about/about.vue'
 import Rules from '../views/rules/rules.vue'
 
@@ -19,12 +21,23 @@ const routes = [
   {
     path: '/layout', component: layout, name: 'layout',
     children: [
-      { path: '/admin', component: Table},
-      { path: '/pdf', component: PDF}
+      { path: '/pdf', component: PDF},
+      {
+        path: '/admin',
+        component: Landing_Admin
+      },
+      {
+        path: '/daftar_peserta',
+        component: Daftar_Peserta
+      },
+      {
+        path: '/daftar_user',
+        component: Daftar_User
+      }
     ]
   },
   {
-    path: '', component: layoutPage, name: 'layoutPage',
+    path: '', component: layoutPage,
     children: [
       { path: '/about', component: About },
       { path: '/', name: 'home', component: Home },
