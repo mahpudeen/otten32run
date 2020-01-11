@@ -4,7 +4,9 @@ import layout from '../components/layout.vue'
 import Home from '../views/landingpage/landingpage.vue'
 import Register from '../views/register.vue'
 import Login from '../views/login.vue'
-import Table from '../views/table.vue'
+import Daftar_User from '../views/daftar_user.vue'
+import Daftar_Peserta from '../views/daftar_peserta.vue'
+import Landing_Admin from '../views/landing_admin.vue'
 
 Vue.use(VueRouter)
 
@@ -17,7 +19,15 @@ const routes = [
     children: [
       {
         path: '/admin',
-        component: Table
+        component: Landing_Admin
+      },
+      {
+        path: '/daftar_peserta',
+        component: Daftar_Peserta
+      },
+      {
+        path: '/daftar_user',
+        component: Daftar_User
       }
     ]
   }
