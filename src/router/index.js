@@ -10,6 +10,7 @@ import Daftar_Peserta from '../views/daftar_peserta.vue'
 import Landing_Admin from '../views/landing_admin.vue'
 import About from '../views/about/about.vue'
 import Rules from '../views/rules/rules.vue'
+import Logged_User from '../views/logged_user.vue'
 
 Vue.use(VueRouter)
 
@@ -17,6 +18,7 @@ const routes = [
   // { path: '/', name: 'home', component: Home },
   { path: '/register', component: Register, name: 'register' },
   { path: '/login', component: Login, name: 'login' },
+  { path: '/logged_user', component: Logged_User, name: 'logged_user' },
   {
     path: '/layout', component: layout, name: 'layout',
     children: [
