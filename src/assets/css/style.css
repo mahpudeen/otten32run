@@ -1483,7 +1483,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   padding: 40px 0 40px 0;
 }
 .navbar-toggler {
-  background-color: #092d5b;
+  background-color: #fec013;
   color: #fff;
   padding: 6px 12px;
   font-size: 14px;
@@ -8274,6 +8274,11 @@ body.landing-page {
 .landing-page .features .big-icon {
   color: #092d5b !important;
 }
+.com-logos {
+  max-width: calc(8vh + 10vw);
+  max-height: 18vh;
+  padding: 1vw;
+}
 .landing-page .contact {
   background-image: url('/statics/images/word_map.png');
   background-position: 50% 50%;
@@ -8339,13 +8344,17 @@ body.landing-page {
   padding: 10px 20px;
   font-weight: 600;
 }
+.landing-page .btn-primary2 {
+  background-color: #179d82;
+  border-color: #179d82;
+}
 .landing-page .btn-primary:hover,
 .landing-page .btn-primary:focus,
 .landing-page .btn-primary:active,
 .landing-page .btn-primary.active,
 .landing-page .open .dropdown-toggle.btn-primary {
-  background-color: #179d82;
-  border-color: #179d82;
+  background-color: #092d5b;
+  border-color: #092d5b;
   color: #FFFFFF;
 }
 .landing-page .btn-primary:active,
