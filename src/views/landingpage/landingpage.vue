@@ -9,7 +9,7 @@ export default {
     name: 'landingpage',
     data () {
         return {
-            
+        mainProps2: { width: 450, height: 450, class: 'm1' }
         }
     },
 }
