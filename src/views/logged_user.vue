@@ -28,7 +28,7 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <div class="navy-line"></div>
-          <h1>HALO, GINA</h1>
+          <h1>HALO, {{nama_user}}</h1>
           <p>Ayo daftar menjadi peserta lari dengan cara mengisi form dibawah ini.</p>
         </div>
       </div>
@@ -187,10 +187,6 @@
   border: 1px solid #e5e6e7 !important;
   color: #676a87 !important;
 }
-/* navbar-fixed-top, */
-/* navbar-static-top { */
-  /* background: #1e264c !important; */
-/* } */
 .mx-input {
   width: 100%;
   height: 36px;
@@ -204,13 +200,16 @@
 <script>
 import Swal from "sweetalert2";
 import DatePicker from "vue2-datepicker";
+import moment from "moment";
 import "vue2-datepicker/index.css";
 export default {
   components: { DatePicker },
   data() {
     return {
+      nama_user: localStorage.getItem('namaUser_active'),
       time1: new Date().toISOString().substr(0, 10),
       param: {
+        id_user: localStorage.getItem('idUser_active'),
         jenis_kelamin: "",
         alamat_user: "",
         nomor_identitas: "",
@@ -235,6 +234,8 @@ export default {
     daftarPeserta() {
       let self = this;
       console.log("data kirim", self.param);
+      self.param.tanggal_lahir = moment(new Date(self.param.tanggal_lahir)).format('YYYY-MM-DD');
+      // console.log('tanggal lahir',self.param.tanggal_lahir);
       Swal.fire({
         title: "Konfirmasi",
         text: "Apakah Anda yakin telah mengisi dengan benar?",
@@ -254,7 +255,6 @@ export default {
             })
             .then(function(res) {
               Swal.fire("Berhasil!", "Data berhasil disimpan!", "success");
-              self.resetForm();
             })
             .catch(function(err) {
               console.log(err);

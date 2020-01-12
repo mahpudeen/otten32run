@@ -4,13 +4,13 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
-import axios from 'axios';
+import axios from 'axios'
+import moment from 'moment'
+
 const base = axios.create({
   baseURL: 'http://localhost/api/public'
 });
 Vue.prototype.$http = base;
-
-import Swal from "sweetalert2";
 
 import '@/assets/css/bootstrap.min.css'
 import '@/assets/css/animate.css'
