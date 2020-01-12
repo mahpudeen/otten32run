@@ -1,39 +1,12 @@
 <template>
-<body id="page-top" class="landing-page">
-  <div class="navbar-wrapper">
-    <nav class="navbar navbar-default navbar-fixed-top navbar-expand-md" role="navigation">
-      <div class="container">
-        <a class="navbar-brand" href="/">Otten32Run</a>
-        <div class="navbar-header page-scroll">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
-            <i class="fa fa-bars"></i>
-          </button>
-        </div>
-        <div class="collapse navbar-collapse justify-content-end" id="navbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a class="nav-link page-scroll" href="#page-top">
-                <div class="text">Log Out</div>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
-  <!-- <div id="inSlider">
-    <b-img src="img/run.jpg" fluid-grow alt="Fluid-grow image"></b-img>
-  </div>-->
-  <div class="kontak"></div>
-  <section class="features" id="features">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <div class="navy-line"></div>
-          <h1>HALO, GINA</h1>
-          <p>Ayo daftar menjadi peserta lari dengan cara mengisi form dibawah ini.</p>
-        </div>
-      </div>
+  <div>
+    <!-- DIV JUDUL -->
+    <div class="ibox-title">
+      <b>HALO, GINA</b>
+      <p>Ayo daftar menjadi peserta lari dengan cara mengisi form dibawah ini.</p>
+    </div>
+    <div class="ibox-content">
+    <!-- DIV BODY, MASUKIN CODINGAN DISINI (DALAM IBOX-CONTENT) -->
       <div class="login">
         <div class="row">
           <div class="col-lg-6 wow zoomIn">
@@ -100,91 +73,11 @@
           </div>
         </div>
       </div>
+    <!-- BATAS CODINGAN -->
     </div>
-  </section>
-  <div class="kontak">
-    <section id="contact" class="gray-section contact" style="margin-top:-20px">
-      <div class="container">
-        <div class="row m-b-lg">
-          <div class="col-lg-12 text-center">
-            <div class="navy-line"></div>
-            <h1>Contact Us</h1>
-          </div>
-        </div>
-        <div class="row m-b-lg justify-content-center">
-          <div class="col-lg-3"></div>
-          <div class="col-lg-4"></div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <a href="mailto:test@email.com" class="btn btn-primary">Send us mail</a>
-            <p class="m-t-sm">Or follow us on social platform</p>
-            <ul class="list-inline social-icon">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12 text-center m-t-lg m-b-lg">
-            <p>
-              <strong>&copy; 2020 Otten 32 Run</strong>
-              <br />
-              <!-- consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. -->
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
   </div>
-</body>
 </template>
-<style>
-.btn-lebar {
-  width: 100%;
-}
-.kontak {
-  margin-top: 70px;
-}
-.text {
-  color: #ffffff;
-}
-.login {
-  margin: 20px;
-}
-.custom-select {
-  border-radius: 1px !important;
-  height: 36px !important;
-  border: 1px solid #e5e6e7 !important;
-  color: #676a87 !important;
-}
-/* navbar-fixed-top, */
-/* navbar-static-top { */
-  /* background: #1e264c !important; */
-/* } */
-.mx-input {
-  width: 100%;
-  height: 36px;
-  color: #676a87 !important;
-  border: 1px solid #e5e6e7 !important;
-  border-radius: 1px !important;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0) !important;
-  box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0) !important;
-}
-</style>
+
 <script>
 import Swal from "sweetalert2";
 import DatePicker from "vue2-datepicker";
