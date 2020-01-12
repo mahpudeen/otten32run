@@ -13,7 +13,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li>
               <a class="nav-link page-scroll" href="#page-top">
-                <div class="text">Log Out</div>
+                <div class="text" @click="logout()">Log Out</div>
               </a>
             </li>
           </ul>
@@ -29,93 +29,101 @@
         <div class="col-lg-12 text-center">
           <div class="navy-line"></div>
           <h1>HALO, {{nama_user}}</h1>
-          <p>Ayo daftar menjadi peserta lari dengan cara mengisi form dibawah ini.</p>
+          <div v-if="!isPeserta">
+            <p>Ayo daftar menjadi peserta lari dengan cara mengisi form dibawah ini.</p>
+          </div>
         </div>
       </div>
-      <div class="login">
-        <div class="row">
-          <div class="col-lg-6 wow zoomIn">
-            <div class="form-group">
+      <div v-if="!isPeserta">
+        <div class="login">
+          <div class="row">
+            <div class="col-lg-6 wow zoomIn">
               <div class="form-group">
-                <label for="nama_user">Nomor Identitas</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="param.nomor_identitas"
-                  required
-                  autofocus
-                />
+                <div class="form-group">
+                  <label for="nama_user">Nomor Identitas</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    v-model="param.nomor_identitas"
+                    required
+                    autofocus
+                  />
+                </div>
+                <label>Jenis Kelamin</label>
+                <select class="custom-select" v-model="param.jenis_kelamin" required>
+                  <option selected>Pilih...</option>
+                  <option value="L">Laki-laki</option>
+                  <option value="P">Perempuan</option>
+                </select>
               </div>
-              <label>Jenis Kelamin</label>
-              <select class="custom-select" v-model="param.jenis_kelamin" required>
-                <option selected>Pilih...</option>
-                <option value="L">Laki-laki</option>
-                <option value="P">Perempuan</option>
-              </select>
+              <div class="form-group">
+                <label for="nama_user">Tempat Lahir</label>
+                <input type="text" class="form-control" v-model="param.tempat_lahir" required />
+              </div>
+              <div class="form-group">
+                <label>Alamat Lengkap</label>
+                <textarea class="form-control" v-model="param.alamat_user" rows="3" required></textarea>
+              </div>
+              <div class="form-group">
+                <label>Obat Pribadi</label>
+                <textarea class="form-control" v-model="param.obat_pribadi" rows="3" required></textarea>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="nama_user">Tempat Lahir</label>
-              <input type="text" class="form-control" v-model="param.tempat_lahir" required />
-            </div>
-            <div class="form-group">
-              <label>Alamat Lengkap</label>
-              <textarea class="form-control" v-model="param.alamat_user" rows="3" required></textarea>
-            </div>
-            <div class="form-group">
-              <label>Obat Pribadi</label>
-              <textarea class="form-control" v-model="param.obat_pribadi" rows="3" required></textarea>
-            </div>
-          </div>
 
-          <div class="col-lg-6 wow zoomIn">
-            <div class="form-group">
-              <label>Golongan Darah</label>
-              <select class="custom-select" v-model="param.golongan_darah">
-                <option selected>Pilih...</option>
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="AB">C</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Size Chart Kaos</label>
-              <select class="custom-select" v-model="param.size_chart">
-                <option selected>Pilih...</option>
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-                <option value="XXL">XXL</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Tanggal Lahir</label>
-              <br />
-              <date-picker v-model="param.tanggal_lahir" valuetype="format" required></date-picker>
-            </div>
-            <div class="form-group">
-              <label>Riwayat Kesehatan</label>
-              <textarea class="form-control" v-model="param.riwayat_kesehatan" rows="3" required></textarea>
-            </div>
-            <div class="form-group">
-              <label>Riwayat Kesehatan Keluarga</label>
-              <textarea
-                class="form-control"
-                v-model="param.riwayat_kesehatan_keluarga"
-                rows="3"
-                required
-              ></textarea>
+            <div class="col-lg-6 wow zoomIn">
+              <div class="form-group">
+                <label>Golongan Darah</label>
+                <select class="custom-select" v-model="param.golongan_darah">
+                  <option selected>Pilih...</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="AB">C</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Size Chart Kaos</label>
+                <select class="custom-select" v-model="param.size_chart">
+                  <option selected>Pilih...</option>
+                  <option value="S">S</option>
+                  <option value="M">M</option>
+                  <option value="L">L</option>
+                  <option value="XL">XL</option>
+                  <option value="XXL">XXL</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Tanggal Lahir</label>
+                <br />
+                <date-picker v-model="param.tanggal_lahir" valuetype="format" required></date-picker>
+              </div>
+              <div class="form-group">
+                <label>Riwayat Kesehatan</label>
+                <textarea class="form-control" v-model="param.riwayat_kesehatan" rows="3" required></textarea>
+              </div>
+              <div class="form-group">
+                <label>Riwayat Kesehatan Keluarga</label>
+                <textarea
+                  class="form-control"
+                  v-model="param.riwayat_kesehatan_keluarga"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <button @click="daftarPeserta()" class="btn btn-primary btn-lebar">Submit</button>
-          &nbsp;
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <button @click="daftarPeserta()" class="btn btn-primary btn-lebar">Submit</button>
+            &nbsp;
+          </div>
         </div>
       </div>
+      <div v-else>
+        
+      </div>
+
     </div>
   </section>
   <div class="kontak">
@@ -206,10 +214,11 @@ export default {
   components: { DatePicker },
   data() {
     return {
-      nama_user: localStorage.getItem('namaUser_active'),
+      isPeserta: '',
+      nama_user: localStorage.getItem("namaUser_active"),
       time1: new Date().toISOString().substr(0, 10),
       param: {
-        id_user: localStorage.getItem('idUser_active'),
+        id_user: localStorage.getItem("idUser_active"),
         jenis_kelamin: "",
         alamat_user: "",
         nomor_identitas: "",
@@ -230,12 +239,45 @@ export default {
       ]
     };
   },
+  beforeCreate() {
+    let self = this;
+    console.log('id usernya', localStorage.getItem("idUser_active"))
+    let id = {
+      "id_user": localStorage.getItem("idUser_active")
+    }
+    console.log('yahud', id)
+    self.$http
+      .get("http://localhost/api/public/cekDaftar/", {
+        params: {
+          id_user: localStorage.getItem("idUser_active")
+        }
+      })
+      .then(function(datas) {
+        return datas;
+      })
+      .then(function(res) {
+        self.isPeserta = res.data.statusDaftar
+        console.log('isPeserta', self.isPeserta)
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+  },
   methods: {
+    logout(){
+      localStorage.removeItem("idUser_active")
+      localStorage.removeItem('namaUser_active')
+      localStorage.removeItem('idUser_active')
+      localStorage.removeItem('levelUser_active')
+      localStorage.removeItem('emailUser_active')
+      this.$router.push({ path : '/'})
+    },
     daftarPeserta() {
       let self = this;
       console.log("data kirim", self.param);
-      self.param.tanggal_lahir = moment(new Date(self.param.tanggal_lahir)).format('YYYY-MM-DD');
-      // console.log('tanggal lahir',self.param.tanggal_lahir);
+      self.param.tanggal_lahir = moment(
+        new Date(self.param.tanggal_lahir)
+      ).format("YYYY-MM-DD");
       Swal.fire({
         title: "Konfirmasi",
         text: "Apakah Anda yakin telah mengisi dengan benar?",
