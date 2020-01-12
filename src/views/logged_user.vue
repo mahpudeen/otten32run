@@ -187,10 +187,10 @@
   border: 1px solid #e5e6e7 !important;
   color: #676a87 !important;
 }
-.navbar-fixed-top,
-.navbar-static-top {
-  background: #1e264c !important;
-}
+/* navbar-fixed-top, */
+/* navbar-static-top { */
+  /* background: #1e264c !important; */
+/* } */
 .mx-input {
   width: 100%;
   height: 36px;

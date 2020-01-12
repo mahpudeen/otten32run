@@ -13,6 +13,7 @@ import Landing_Admin from '../views/landing_admin.vue'
 import About from '../views/about/about.vue'
 import Rules from '../views/rules/rules.vue'
 import Logged_User from '../views/logged_user.vue'
+import User_Daftar from '../views/user_daftar.vue'
 
 Vue.use(VueRouter)
 
@@ -51,6 +52,7 @@ const routes = [
     path: '', component: layoutUser,
     children: [
       { path: '/cetaktiket', component: PDF },
+      { path: '/daftarpeserta', component: User_Daftar },
     ]
   }
 ]
