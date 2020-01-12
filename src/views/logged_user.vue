@@ -21,9 +21,7 @@
       </div>
     </nav>
   </div>
-  <!-- <div id="inSlider">
-    <b-img src="img/run.jpg" fluid-grow alt="Fluid-grow image"></b-img>
-  </div>-->
+
   <div class="kontak"></div>
   <section class="features" id="features">
     <div class="container">
@@ -38,8 +36,18 @@
         <div class="row">
           <div class="col-lg-6 wow zoomIn">
             <div class="form-group">
+              <div class="form-group">
+                <label for="nama_user">Nomor Identitas</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  v-model="param.nomor_identitas"
+                  required
+                  autofocus
+                />
+              </div>
               <label>Jenis Kelamin</label>
-              <select class="custom-select" v-model="param.jenis_kelamin" autofocus>
+              <select class="custom-select" v-model="param.jenis_kelamin" required>
                 <option selected>Pilih...</option>
                 <option value="L">Laki-laki</option>
                 <option value="P">Perempuan</option>
@@ -51,22 +59,11 @@
             </div>
             <div class="form-group">
               <label>Alamat Lengkap</label>
-              <textarea class="form-control" v-model="param.alamat_user" rows="3"></textarea>
+              <textarea class="form-control" v-model="param.alamat_user" rows="3" required></textarea>
             </div>
             <div class="form-group">
               <label>Obat Pribadi</label>
-              <textarea class="form-control" v-model="param.obat_pribadi" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-              <label>Size Chart Kaos</label>
-              <select class="custom-select" v-model="param.size_chart">
-                <option selected>Pilih...</option>
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-                <option value="XXL">XXL</option>
-              </select>
+              <textarea class="form-control" v-model="param.obat_pribadi" rows="3" required></textarea>
             </div>
           </div>
 
@@ -81,23 +78,42 @@
               </select>
             </div>
             <div class="form-group">
+              <label>Size Chart Kaos</label>
+              <select class="custom-select" v-model="param.size_chart">
+                <option selected>Pilih...</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+              </select>
+            </div>
+            <div class="form-group">
               <label>Tanggal Lahir</label>
               <br />
-              <date-picker v-model="param.tanggal_lahir" valuetype="format"></date-picker>
+              <date-picker v-model="param.tanggal_lahir" valuetype="format" required></date-picker>
             </div>
             <div class="form-group">
               <label>Riwayat Kesehatan</label>
-              <textarea class="form-control" v-model="param.riwayat_kesehatan" rows="3"></textarea>
+              <textarea class="form-control" v-model="param.riwayat_kesehatan" rows="3" required></textarea>
             </div>
             <div class="form-group">
               <label>Riwayat Kesehatan Keluarga</label>
-              <textarea class="form-control" v-model="param.riwayat_kesehatan_keluarga" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-              <br />
-              <button @click="daftarPeserta()" class="btn btn-primary btn-lebar">Submit</button> &nbsp;
+              <textarea
+                class="form-control"
+                v-model="param.riwayat_kesehatan_keluarga"
+                rows="3"
+                required
+              ></textarea>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <button @click="daftarPeserta()" class="btn btn-primary btn-lebar">Submit</button>
+          &nbsp;
         </div>
       </div>
     </div>
@@ -154,7 +170,7 @@
 </template>
 <style>
 .btn-lebar {
-  width: 100%;
+  width: 25%;
 }
 .kontak {
   margin-top: 70px;
@@ -193,10 +209,11 @@ export default {
   components: { DatePicker },
   data() {
     return {
-      time1: null,
+      time1: new Date().toISOString().substr(0, 10),
       param: {
         jenis_kelamin: "",
         alamat_user: "",
+        nomor_identitas: "",
         tempat_lahir: "",
         tanggal_lahir: "",
         golongan_darah: "",
@@ -217,7 +234,7 @@ export default {
   methods: {
     daftarPeserta() {
       let self = this;
-        console.log('data kirim', self.param)
+      console.log("data kirim", self.param);
       Swal.fire({
         title: "Konfirmasi",
         text: "Apakah Anda yakin telah mengisi dengan benar?",
@@ -227,19 +244,22 @@ export default {
         cancelButtonText: "Tidak!"
       }).then(result => {
         if (result.value) {
-        //   self.$http
-        //     .post("http://localhost/api/public/regis_user/", self.param)
-        //     .then(function(datas) {
-        //       return datas;
-        //     })
-        //     .then(function(res) {
-        //       Swal.fire("Berhasil!", "Data berhasil disimpan!", "success");
-        //       self.resetForm();
-        //     })
-        //     .catch(function(err) {
-        //       console.log(err);
-        //       Swal.fire("Gagal!", "Data tidak berhasil disimpan!", "error");
-        //     });
+          self.$http
+            .post(
+              "http://localhost/api/public/daftar_jadi_peserta/",
+              self.param
+            )
+            .then(function(datas) {
+              return datas;
+            })
+            .then(function(res) {
+              Swal.fire("Berhasil!", "Data berhasil disimpan!", "success");
+              self.resetForm();
+            })
+            .catch(function(err) {
+              console.log(err);
+              Swal.fire("Gagal!", "Data tidak berhasil disimpan!", "error");
+            });
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           // Swal.fire("Cancelled", "Your imaginary file is safe :)", "error");
         }

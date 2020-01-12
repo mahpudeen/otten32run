@@ -152,7 +152,6 @@ export default {
     },
     loginProcess() {
       let self = this;
-      console.log(self.param)
       self.$http
         .post("http://localhost/api/public/login_user/", self.param)
         .then(function(datas) {
@@ -160,7 +159,8 @@ export default {
         })
         .then(function(res) {
           Swal.fire("Berhasil!", "selamat datang!", "success");
-          self.$router.push({ path : '/'})
+          console.log('tokennya', res.data)
+          // self.$router.push({ path : '/'})
         })
         .catch(function(err, response) {
           Swal.fire("Gagal!", err.response.data.message, "error");
