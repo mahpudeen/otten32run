@@ -44,7 +44,50 @@
           <div class="col-lg-3 wow zoomIn"></div>
 
           <div class="col-lg-6 wow zoomIn">
-            <div class="form-group">
+            <b-form @submit="regisProcess" @reset="resetForm">
+              <b-form-group id="input-group-2" label="Nama Lengkap:" label-for="input-2">
+                <b-form-input
+                  id="input-2"
+                  v-model="param.nama_lengkap"
+                  required
+                ></b-form-input>
+              </b-form-group>
+
+              <b-form-group id="input-group-2" label="Nomor Handphone:" label-for="input-2">
+                <b-form-input
+                  id="input-2"
+                  v-model="param.nomor_hp"
+                  required
+                ></b-form-input>
+              </b-form-group>
+              
+              <b-form-group
+                id="input-group-1"
+                label="Email address:"
+                label-for="input-1"
+                description="We'll never share your email with anyone else."
+              >
+                <b-form-input
+                  id="input-1"
+                  v-model="param.email_user"
+                  type="email"
+                  required
+                ></b-form-input>
+              </b-form-group>
+
+              <b-form-group id="input-group-2" label="Password:" label-for="text-password">
+                <b-input type="password" id="text-password" v-model="param.password_user" required></b-input>
+              </b-form-group>
+
+              <div style="text-align:center">
+                <b-button type="submit" variant="warning">Submit</b-button> &nbsp; &nbsp;
+                <b-button type="reset" variant="danger">Reset</b-button>
+              </div>
+            </b-form>
+
+            <!-- PISAAAAAAHHHHHHHHHHHHHHHHHHHHHH -->
+
+            <!-- <div class="form-group">
               <label for="nama_user">Nama Lengkap</label>
               <input
                 type="text"
@@ -80,7 +123,7 @@
             <div style="text-align:center">
               <b-button @click="regisProcess()" variant="warning">Submit</b-button> &nbsp;
               <b-button @click="resetForm()" variant="danger">Reset</b-button>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -171,7 +214,8 @@ export default {
         password_user: ""
       };
     },
-    regisProcess() {
+    regisProcess(evt) {
+      evt.preventDefault();
       let self = this;
 
       Swal.fire({
@@ -189,10 +233,10 @@ export default {
               return datas;
             })
             .then(function(res) {
-              Swal.fire("Berhasil!", "Data berhasil disimpan!", "success");
+              Swal.fire("Berhasil!", "Data berhasil disimpan! Silahkan Login", "success");
               self.resetForm();
               self.$router.push("login");
-              // self.$router.push("admin");
+              window.location.reload(true);
             })
             .catch(function(err) {
               console.log(err);

@@ -35,7 +35,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="navy-line"></div>
-                    <h1>Community Partners:</h1>
+                    <h1>Media Partners:</h1>
                     <p>
                         <b-img class="com-logos" src="img/sponsor/larikuinfo.jpg" v-bind="mainProps" rounded="circle" alt="Circle image"></b-img>
                         <!-- <img  class="rounded img-thumbnail" alt="..."> -->
@@ -77,7 +77,7 @@
                         <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a>
                         </li>
                     </ul>
-                    <p><strong>&copy; 2020 Otten 32 Run</strong></p>
+                    <p><strong>&copy; 2020 Otten32Run</strong></p>
                 </div>
             </div>
         </div>

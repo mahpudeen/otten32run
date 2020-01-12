@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import layout from '../components/layout.vue'
 import layoutPage from '../components/layoutPage.vue'
+import layoutUser from '../components/layoutUser.vue'
 import Home from '../views/landingpage/landingpage.vue'
 import Register from '../views/register.vue'
 import Login from '../views/login.vue'
@@ -42,6 +43,12 @@ const routes = [
       { path: '/about', component: About },
       { path: '/', name: 'home', component: Home },
       { path: '/rules', name: 'rules', component: Rules },
+    ]
+  },
+  {
+    path: '', component: layoutUser,
+    children: [
+      { path: '/cetaktiket', component: PDF },
     ]
   }
 ]
