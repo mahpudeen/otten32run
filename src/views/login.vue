@@ -165,7 +165,7 @@ export default {
           localStorage.setItem('levelUser_active', data.level_akses)
           localStorage.setItem('emailUser_active', data.email_user)
           Swal.fire("Berhasil!", "selamat datang!", "success")
-          .then(function(data){
+          .then(function(){
             const level = localStorage.getItem('levelUser_active');
             if (level === '1' || level === 1) {
               self.$router.push({ path : '/admin'})

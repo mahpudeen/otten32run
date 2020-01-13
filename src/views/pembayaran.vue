@@ -32,41 +32,51 @@
         </div>
       </div>
       <br />
-      <div class="row">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-8 text-center">
-          <table class="table">
-            <thead class="thead-dark">
-              <tr class="table-size">
-                <th scope="col">Nama</th>
-                <th scope="col">Ukuran Kaos</th>
-                <th scope="col">Kode Unik</th>
-                <th scope="col">Total Pembayaran</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="table-size">
-                <th scope="row">{{nama_user}}</th>
-                <th scope="row">{{size_chart}}</th>
-                <th scope="row">{{id_pendaftaran}}</th>
-                <th scope="row">Rp. {{total}}</th>
-              </tr>
-            </tbody>
-          </table>
-          <br />
 
-          <strong class="rek">
-            TRANSFER SESUAI DENGAN TOTAL PEMBAYARAN YANG TERTERA
-            <br />KE REKENING BNI a.n LULU NURLIA KUSFANI 0456324335
-            <br />
-            <br />SETELAH TRANSFER HARAP KONFIRMASI DENGAN MELAMPIRKAN
-            <br />SCREESHOOT HALAMAN INI DAN BUKTI TRANSFER KE WHATSAPP ADMIN
-          </strong>
-          <br />
-          <br />
-          <a href="https://wa.me/6285775000157" class="btn btn-primary">
-            <span class="fa fa-whatsapp"></span> WHATSAPP ADMIN
-          </a>
+      <div>
+        <div v-if="status_bayar === 'pending'">
+          <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 text-center">
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr class="table-size">
+                    <th scope="col">Nama</th>
+                    <th scope="col">Ukuran Kaos</th>
+                    <th scope="col">Kode Unik</th>
+                    <th scope="col">Total Pembayaran</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-size">
+                    <th scope="row">{{nama_user}}</th>
+                    <th scope="row">{{size_chart}}</th>
+                    <th scope="row">{{id_user}}</th>
+                    <th scope="row">Rp. {{total_pembayaran}}</th>
+                  </tr>
+                </tbody>
+              </table>
+              <br />
+
+              <strong class="rek">
+                TRANSFER SESUAI DENGAN TOTAL PEMBAYARAN YANG TERTERA
+                <br />KE REKENING BNI a.n LULU NURLIA KUSFANI 0456324335
+                <br />
+                <br />SETELAH TRANSFER HARAP KONFIRMASI DENGAN MELAMPIRKAN
+                <br />SCREESHOOT HALAMAN INI DAN BUKTI TRANSFER KE WHATSAPP ADMIN
+              </strong>
+              <br />
+              <br />
+              <a href="https://wa.me/6285775000157" class="btn btn-primary">
+                <i class="fa fa-whatsapp"></i> WHATSAPP ADMIN
+              </a>
+            </div>
+          </div>
+        </div>
+        <div v-else class="text-center">
+          <strong
+            class="rek"
+          >Halo, {{nama_user}}. Kamu sudah melakukan pembayaran, silahkan ke menu Tiket untuk mengunduh tiket Anda.</strong>
         </div>
       </div>
     </div>
@@ -143,12 +153,37 @@ export default {
   },
   data() {
     return {
-      // nama_user: localStorage.getItem('namaUser_active'),
-      nama_user: "Muhammad Reza Oktovian",
-      size_chart: "L",
-      total_pembayaran: "200000",
-      id_pendaftaran: "123"
+      nama_user: localStorage.getItem("namaUser_active"),
+      // nama_user: '',
+      size_chart: "",
+      total_pembayaran: "",
+      id_user: "",
+      status_bayar: ""
     };
+  },
+  beforeCreate() {
+    let self = this;
+    self.$http
+      .get("http://localhost/api/public/cekDaftar/", {
+        params: {
+          id_user: localStorage.getItem("idUser_active")
+        }
+      })
+      .then(function(datas) {
+        return datas;
+      })
+      .then(function(res) {
+        const data = res.data.data;
+        self.total_pembayaran = new Intl.NumberFormat(["ban", "id"]).format(
+          data.total_bayar
+        );
+        self.id_user = data.id_user;
+        self.size_chart = data.size_chart;
+        self.status_bayar = data.status_bayar;
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
   },
   computed: {
     total: function() {

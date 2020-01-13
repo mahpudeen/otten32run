@@ -121,9 +121,98 @@
         </div>
       </div>
       <div v-else>
-        
+        <div class="row">
+          <div class="col-lg-3"></div>
+          <div class="col-lg-6">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="text-right">Nama Lengkap</th>
+                  <td>{{data.nama_lengkap}}</td>
+                </tr>
+              </thead>
+              <thead>
+                <tr>
+                  <th scope="col" class="text-right">Email User</th>
+                  <td>{{data.email_user}}</td>
+                </tr>
+              </thead>
+              <thead>
+                <tr>
+                  <th scope="col" class="text-right">Nomor HP</th>
+                  <td>{{data.nomor_hp}}</td>
+                </tr>
+              </thead>
+              <thead>
+                <tr>
+                  <th scope="col" class="text-right">Nomor Identitas</th>
+                  <td>{{data.nomor_identitas}}</td>
+                </tr>
+              </thead>
+              <thead>
+                <tr>
+                  <th scope="col" class="text-right">Jenis Kelamin</th>
+                  <td>{{data.jenis_kelamin}}</td>
+                </tr>
+              </thead>
+              <thead>
+                <tr>
+                  <th scope="col" class="text-right">Alamat</th>
+                  <td>{{data.alamat_user}}</td>
+                </tr>
+              </thead>
+              <thead>
+                <tr>
+                  <th scope="col" class="text-right">Tempat Lahir</th>
+                  <td>{{data.tempat_lahir}}</td>
+                </tr>
+              </thead>
+              <thead>
+                <tr>
+                  <th scope="col" class="text-right">Tanggal Lahir</th>
+                  <td>{{data.tanggal_lahir}}</td>
+                </tr>
+              </thead>
+              <thead>
+                <tr>
+                  <th scope="col" class="text-right">Golongan Darah</th>
+                  <td>{{data.golongan_darah}}</td>
+                </tr>
+              </thead>
+              <thead>
+                <tr>
+                  <th scope="col" class="text-right">Riwayat Kesehatan</th>
+                  <td>{{data.riwayat_kesehatan}}</td>
+                </tr>
+              </thead>
+              <thead>
+                <tr>
+                  <th scope="col" class="text-right">Riwayat Kesehatan Keluarga</th>
+                  <td>{{data.riwayat_kesehatan_keluarga}}</td>
+                </tr>
+              </thead>
+              <thead>
+                <tr>
+                  <th scope="col" class="text-right">Obat Pribadi</th>
+                  <td>{{data.obat_pribadi}}</td>
+                </tr>
+              </thead>
+              <thead>
+                <tr>
+                  <th scope="col" class="text-right">Total Pembayaran</th>
+                  <td>{{data.total_bayar}}</td>
+                </tr>
+              </thead>
+              <thead>
+                <tr>
+                  <th scope="col" class="text-right">Status Pembayaran</th>
+                  <td>{{data.status_bayar}}</td>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
       </div>
-
     </div>
   </section>
   <div class="kontak">
@@ -214,9 +303,28 @@ export default {
   components: { DatePicker },
   data() {
     return {
-      isPeserta: '',
+      isPeserta: "",
       nama_user: localStorage.getItem("namaUser_active"),
       time1: new Date().toISOString().substr(0, 10),
+      data: [
+        {
+          nama_lengkap: "",
+          email_user: "",
+          nomor_hp: "",
+          nomor_identitas: "",
+          jenis_kelamin: "",
+          alamat_user: "",
+          tempat_lahir: "",
+          tanggal_lahir: "",
+          golongan_darah: "",
+          riwayat_kesehatan: "",
+          riwayat_kesehatan_keluarga: "",
+          obat_pribadi: "",
+          size_chart: "",
+          total_bayar: "",
+          status_bayar: ""
+        }
+      ],
       param: {
         id_user: localStorage.getItem("idUser_active"),
         jenis_kelamin: "",
@@ -241,13 +349,8 @@ export default {
   },
   beforeCreate() {
     let self = this;
-    console.log('id usernya', localStorage.getItem("idUser_active"))
-    let id = {
-      "id_user": localStorage.getItem("idUser_active")
-    }
-    console.log('yahud', id)
     self.$http
-      .get("http://localhost/api/public/cekDaftar/", {
+      .get("http://localhost/api/public/data_detail/", {
         params: {
           id_user: localStorage.getItem("idUser_active")
         }
@@ -256,21 +359,40 @@ export default {
         return datas;
       })
       .then(function(res) {
-        self.isPeserta = res.data.statusDaftar
-        console.log('isPeserta', self.isPeserta)
+        self.isPeserta = res.data.statusDaftar;
+        if (self.isPeserta) {
+          const ok = res.data.data;
+          console.log("laaah", ok);
+          self.data.nama_lengkap = ok.nama_lengkap;
+          self.data.email_user = ok.email_user;
+          self.data.nomor_hp = ok.nomor_hp;
+          self.data.nomor_identitas = ok.nomor_identitas;
+          self.data.jenis_kelamin = ok.jenis_kelamin;
+          self.data.alamat_user = ok.alamat_user;
+          self.data.tempat_lahir = ok.tempat_lahir;
+          self.data.tanggal_lahir = ok.tanggal_lahir;
+          self.data.golongan_darah = ok.golongan_darah;
+          self.data.riwayat_kesehatan = ok.riwayat_kesehatan;
+          self.data.riwayat_kesehatan_keluarga = ok.riwayat_kesehatan_keluarga;
+          self.data.obat_pribadi = ok.obat_pribadi;
+          self.data.size_chart = ok.size_chart;
+          self.data.total_bayar = ok.total_bayar;
+          self.data.status_bayar = ok.status_bayar;
+        }
       })
       .catch(function(err) {
         console.log(err);
       });
   },
   methods: {
-    logout(){
-      localStorage.removeItem("idUser_active")
-      localStorage.removeItem('namaUser_active')
-      localStorage.removeItem('idUser_active')
-      localStorage.removeItem('levelUser_active')
-      localStorage.removeItem('emailUser_active')
-      this.$router.push({ path : '/'})
+    logout() {
+      localStorage.removeItem("idUser_active");
+      localStorage.removeItem("namaUser_active");
+      localStorage.removeItem("idUser_active");
+      localStorage.removeItem("levelUser_active");
+      localStorage.removeItem("emailUser_active");
+      localStorage.clear();
+      this.$router.push({ path: "/" });
     },
     daftarPeserta() {
       let self = this;
@@ -296,7 +418,11 @@ export default {
               return datas;
             })
             .then(function(res) {
-              Swal.fire("Berhasil!", "Data berhasil disimpan!", "success");
+              Swal.fire("Berhasil!", "Data berhasil disimpan!", "success").then(
+                function() {
+                  self.$router.push({ path: "/pembayaran" });
+                }
+              );
             })
             .catch(function(err) {
               console.log(err);
