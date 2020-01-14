@@ -24,8 +24,6 @@ const routes = [
   // { path: '/', name: 'home', component: Home },
   { path: '/register', component: Register, name: 'register' },
   { path: '/login', component: Login, name: 'login' },
-  { path: '/logged_user', component: Logged_User, name: 'logged_user' },
-  { path: '/pembayaran', component: Pembayaran, name: 'pembayaran' },
   {
     path: '/layout', component: layout, name: 'layout',
     children: [
@@ -65,6 +63,8 @@ const routes = [
     children: [
       { path: '/cetaktiket', component: PDF },
       { path: '/daftarpeserta', component: User_Daftar },
+      { path: '/logged_user', component: Logged_User, name: 'logged_user' },
+      { path: '/pembayaran', component: Pembayaran, name: 'pembayaran' },
     ]
   }
 ]

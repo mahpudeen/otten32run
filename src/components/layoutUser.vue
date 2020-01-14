@@ -1,125 +1,220 @@
 <template>
-  <div id="wrapper">
-    <nav class="navbar-default navbar-static-side" role="navigation">
-      <div class="sidebar-collapse">
-        <ul class="nav metismenu" id="side-menu">
-          <li class="nav-header">
-            <div class="dropdown profile-element">
-              <img
-                alt="image"
-                class="rounded-circle"
-                src="statics/images/admin.jpg"
-                height="48px"
-                width="48px"
-              />
-              <span class="block m-t-xs font-bold" style="color:white">Dindin Mahpudin</span>
-              <span class="text-muted text-xs block">Peserta</span>
-            </div>
-            <div class="logo-element">
-              <img src="statics/images/logodjp.png" width="40px" height="40px" />
-            </div>
-          </li>
-          <li class="oke">
-            <a href="#" @click="navigate('/admin')">
-              <i class="fa fa-th-large"></i>
-              <span class="nav-label">Dashboards</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" @click="navigate('/daftar_peserta')">
-              <i class="fa fa-users"></i>
-              <span class="nav-label">Bayar</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" @click="navigate('/daftar_user')">
-              <i class="fa fa-user"></i>
-              <span class="nav-label">Cetak Tiket</span>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-    </nav>
-    <div id="page-wrapper" class="gray-bg">
-      <div
-        class="row border-bottom"
-        style="margin-right: -15px !important;margin-left: -15px !important;"
-      >
-        <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
-          <div class="navbar-header">
-            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" href="#">
-              <i class="fa fa-bars"></i>
-            </a>
-          </div>
+<body id="page-top" class="landing-page">
+  <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">Otten32Run</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fa fa-bars" style="color:black"></i>
+    </button>
 
-          <!-- Modal -->
-          <div
-            class="modal fade bd-example-modal-sm"
-            id="exampleModal"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
-              <div class="modal-content">
-                <div class="modal-body" style="text-align:center">
-                  <div>
-                    <span class="fa fa-exclamation-circle fa-5x" aria-hidden="true"></span>
-                  </div>
-                  <div>
-                    <h2>Konfirmasi</h2>
-                  </div>
-                  <div>
-                    <p>Apakah anda yakin ingin keluar dari aplikasi?</p>
-                  </div>
-                  <div>
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      @click="logout()"
-                      style="width:50px; margin-right: 15px"
-                      data-dismiss="modal"
-                    >Ya</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <ul class="nav navbar-top-links navbar-right">
-            <li>
-              <a data-toggle="modal" data-target="#exampleModal">
-                <i class="fa fa-sign-out"></i> Log out
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="/logged_user">
+            <i class="fa fa-home"></i>
+            Home
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/pembayaran">
+            <i class="fa fa-money"></i>
+            Pembayaran
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">
+            <i class="fa fa-ticket"></i>
+            Tiket
+          </a>
+        </li>
+        <li class="nav-link">
+          <a class="nav-link" href="#">
+            <i class="fa fa-sign-out"></i>
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <router-view />
+  
+  <section >
+    <div class="container">
+      <div class="row m-b-lg">
+        <div class="col-lg-12 text-center">
+          <div class="navy-line"></div>
+          <h1>Contact Us</h1>
+        </div>
+      </div>
+      <div class="row" style="margin-top: -25px;">
+        <div class="col-lg-12 text-center">
+          <button class="btn btn-primary2">
+            <img height="35px" width="95px" src="img/whatsapp.png" onclick="whatsap()" />
+          </button>
+          <p class="m-t-sm">Or follow us on social platform</p>
+          <ul class="list-inline social-icon">
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fa fa-linkedin"></i>
               </a>
             </li>
           </ul>
-        </nav>
-      </div>
-      <div class="wrapper wrapper-content animated fadeInRight">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="ibox">
-              <!-- Router View -->
-              <router-view />
-            </div>
-          </div>
+          <p>
+            <strong>&copy; 2020 Otten32Run</strong>
+          </p>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+</body>
 </template>
 <style>
-.mar20 {
-  margin-left: 20px;
+.bg-putih {
+  background-color: white
 }
-.mar-20 {
-  margin-left: -20px;
+.navbar-icon-top .navbar-nav .nav-link > .fa {
+  position: relative;
+  width: 36px;
+  font-size: 24px;
 }
-.qlist {
-  color: #a7b1c2;
-  width: 220px;
+
+.navbar-icon-top .navbar-toggler {
+  background-color: floralwhite;
+  color: blue;
+  padding: 6px 12px;
+  font-size: 14px;
+  margin: 8px;
+}
+.navbar-icon-top .navbar-nav .nav-link {
+  color: aqua
+}
+
+.navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
+  font-size: 0.75rem;
+  position: absolute;
+  right: 0;
+  font-family: sans-serif;
+}
+
+.navbar-icon-top .navbar-nav .nav-link > .fa {
+  top: 3px;
+  line-height: 12px;
+}
+
+.navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
+  top: -10px;
+}
+
+@media (min-width: 576px) {
+  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fa {
+    display: block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+  }
+
+  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fa {
+    display: block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+  }
+
+  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa {
+    display: block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+  }
+
+  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa {
+    display: block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+  }
+
+  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
 }
 </style>
 
@@ -141,7 +236,7 @@ export default {
       this.$router.push({ path: "/dashboard" });
     },
     navigate: function(page) {
-      this.$router.push({ path: page })
+      this.$router.push({ path: page });
     }
   }
 };
