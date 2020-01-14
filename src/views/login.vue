@@ -134,6 +134,7 @@
 </style>
 <script>
 import Swal from "sweetalert2";
+
 export default {
   data() {
     return {
@@ -152,15 +153,26 @@ export default {
     },
     loginProcess() {
       let self = this;
-      console.log(self.param)
       self.$http
         .post("http://localhost/api/public/login_user/", self.param)
         .then(function(datas) {
           return datas;
         })
         .then(function(res) {
-          Swal.fire("Berhasil!", "selamat datang!", "success");
-          self.$router.push({ path : '/'})
+          const data = res.data.data;
+          localStorage.setItem('namaUser_active', data.nama_lengkap)
+          localStorage.setItem('idUser_active', data.id_user)
+          localStorage.setItem('levelUser_active', data.level_akses)
+          localStorage.setItem('emailUser_active', data.email_user)
+          Swal.fire("Berhasil!", "selamat datang!", "success")
+          .then(function(){
+            const level = localStorage.getItem('levelUser_active');
+            if (level === '1' || level === 1) {
+              self.$router.push({ path : '/admin'})
+            } else if (level === '2' || level === 2) {
+              self.$router.push({ path : '/logged_user'})
+            }
+          });
         })
         .catch(function(err, response) {
           Swal.fire("Gagal!", err.response.data.message, "error");

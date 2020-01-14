@@ -16,6 +16,7 @@ import Logged_User from '../views/logged_user.vue'
 import User_Daftar from '../views/user_daftar.vue'
 import Konfirmasi from '../views/konfirmasi_pembayaran.vue'
 import Lunas from '../views/pembayaran_selesai.vue'
+import Pembayaran from '../views/pembayaran.vue'
 
 Vue.use(VueRouter)
 
@@ -24,6 +25,7 @@ const routes = [
   { path: '/register', component: Register, name: 'register' },
   { path: '/login', component: Login, name: 'login' },
   { path: '/logged_user', component: Logged_User, name: 'logged_user' },
+  { path: '/pembayaran', component: Pembayaran, name: 'pembayaran' },
   {
     path: '/layout', component: layout, name: 'layout',
     children: [
