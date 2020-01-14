@@ -6,68 +6,171 @@
     </div>
     <div class="ibox-content">
       <!-- DIV BODY, MASUKIN CODINGAN DISINI (DALAM IBOX-CONTENT) -->
-      <div class="table-responsive-lg">
-        <table class="table">
-          <caption>List of users</caption>
-          <!-- <thead>
-            <tr class="text-center">
-              <th scope="col">No</th>
-              <th scope="col">Nama</th>
-              <th scope="col">Email</th>
-              <th scope="col">Nomor Hp</th>
-              <th scope="col">Aksi</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(idx, index) in dataPeserta" :key="index"  class="text-center">
-              <th scope="row">{{index+1}}</th>
-              <td>{{idx.nama_lengkap}}</td>
-              <td>{{idx.email_user}}</td>
-              <td>{{idx.nomor_hp}}</td>
-              <td> 
-                <b-button @click="test($event)" size="lg" class="fa fa-trash fa-lg" :value="`${idx.id_user}`" variant="danger" title="delete">
-                </b-button> 
-                &nbsp;
-                <b-button  @click="test($event)" size="lg" class="fa fa-edit fa-lg" :value="`${idx.id_user}`" variant="success" title="edit"><span  aria-hidden="true"></span></b-button>
-              </td>
-            </tr>
-          </tbody> -->
-        </table>
+      <div>
+        <div id="main-wrapper" class="container">
+          <div class="row">
+            <div class="col-md-6 col-sm-6 col-12 mt-3 text-left">
+              <p>Jumlah peserta yang daftar : <b> {{posts.length}} </b> orang</p>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-12 mt-3 text-right">
+              <b-form-group
+                label=""
+                label-cols-sm="3"
+                label-align-sm="right"
+                label-size="sm"
+                label-for="filterInput"
+                class="mb-0"
+              >
+                <b-input-group size="sm">
+                  <b-form-input
+                    v-model="filter"
+                    type="search"
+                    id="filterInput"
+                    placeholder="Type to Search"
+                  ></b-form-input>
+                  <b-input-group-append>
+                    <b-button :disabled="!filter" @click="filter = ''">Clear</b-button>
+                  </b-input-group-append>
+                </b-input-group>
+              </b-form-group>
+            </div>
+            <div class="col-md-12">
+              <hr />
+              <b-table
+                ref="table"
+                show-empty
+                striped
+                hover
+                responsive
+                :items="posts"
+                :fields="fields"
+                :filter="filter"
+                :current-page="currentPage"
+                :per-page="perPage"
+              >
+                <template v-slot:cell(index)="data">{{ data.index + 1 }}</template>
+                <template v-slot:cell(level_akses)="row">
+                  Rp. {{ row.value }}
+                </template>
+                <template v-slot:cell(actions)="row">
+                  <b-button
+                    @click="confirm(row.item)"
+                    size="lg"
+                    class="fa fa-trash fa-lg mr-1"
+                    variant="danger"
+                    title="delete"
+                  ></b-button>
+                </template>
+              </b-table>
+              <!-- <div class="col-md-6 col-sm-6 col-12 mt-3 text-right"> -->
+              <b-col align-self="end"></b-col>
+              <b-row>
+                <b-col cols="auto" class="mr-auto p-3">
+                  <b-form-select
+                    v-model="perPage"
+                    id="perPageSelect"
+                    size="sm"
+                    :options="pageOptions"
+                  ></b-form-select>
+                </b-col>
+                <b-col cols="auto" class="p-3">
+                  <b-pagination
+                    :total-rows="totalRows"
+                    :per-page="perPage"
+                    v-model="currentPage"
+                    class="my-0 pagination-sm"
+                  />
+                </b-col>
+              </b-row>
+            </div>
+          </div>
+          <!-- Row -->
+        </div>
+        <!-- Main Wrapper -->
+        <!-- BATAS CODINGAN -->
       </div>
-      <!-- BATAS CODINGAN -->
     </div>
   </div>
 </template>
-<style>
-
-</style>
 <script>
-
 import axios from "axios";
+import Swal from "sweetalert2";
 export default {
   data() {
     return {
-      dataPeserta: []
+      pageOptions: [5, 10, 15, 20, 50, 100, 500, 1000],
+      posts: [],
+      filter: null,
+      currentPage: 1,
+      perPage: 10,
+      totalRows: null,
+      selectedID: null,
+      fields: [
+        { key: "index", label: "No", class: "text-center" },
+        { key: "nama_lengkap", label: "Nama", sortable: true },
+        { key: "email_user", label: "Email", sortable: true },
+        { key: "nomor_hp", label: "Nomor HP", sortable: true },
+        { key: "actions", label: "Aksi", class: "text-center" }
+      ]
     };
   },
-  beforeCreate() {
-    let self = this;
-    axios
-      .get("http://localhost/api/public/users/")
-      .then(function(datas) {
-        return datas;
-      })
-      .then(function(res) {
-        self.dataPeserta = res.data.data;
-        console.log("data user = ", self.dataPeserta);
-      })
-      .catch(function(err) {
-        console.log(err);
-      });
+  mounted() {
+    this.getResults();
   },
   methods: {
-    test: function(e){
-      console.log('ya', e.target.value)
+    // Our method to GET results from a Laravel endpoint
+    getResults() {
+      axios
+        .get("http://localhost/api/public/data_users/")
+
+        .then(response => {
+          this.posts = response.data.data;
+          this.totalRows = response.data.data.length;
+        });
+    },
+    confirm(item) {
+      let self = this;
+      let param = {
+        id_user: item.id_user
+      };
+      Swal.fire({
+        title: "Konfirmasi",
+        text:
+          "Apakah " + item.nama_lengkap + " sudah melakukan pembayaran?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Ya!",
+        cancelButtonText: "Tidak!"
+      }).then(result => {
+        if (result.value) {
+          self.$http
+            .post("http://localhost/api/public/del_user/", param)
+            .then(function(datas) {
+              return datas;
+            })
+            .then(function(res) {
+              self.posts = self.posts.filter(
+                idx => idx.id_user != item.id_user
+              );
+              Swal.fire(
+                "Berhasil!",
+                item.nama_lengkap + " sudah dikonfirmasi!",
+                "success"
+              );
+            })
+            .catch(function(err) {
+              console.log(err);
+              Swal.fire(
+                "Gagal!",
+                item.nama_lengkap + " belum terkonfirmasi!",
+                "error"
+              );
+            });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          // Swal.fire("Cancelled", "Your imaginary file is safe :)", "error");
+        }
+      });
     }
   }
 };

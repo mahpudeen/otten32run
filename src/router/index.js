@@ -14,6 +14,8 @@ import About from '../views/about/about.vue'
 import Rules from '../views/rules/rules.vue'
 import Logged_User from '../views/logged_user.vue'
 import User_Daftar from '../views/user_daftar.vue'
+import Konfirmasi from '../views/konfirmasi_pembayaran.vue'
+import Lunas from '../views/pembayaran_selesai.vue'
 
 Vue.use(VueRouter)
 
@@ -29,6 +31,14 @@ const routes = [
       {
         path: '/admin',
         component: Landing_Admin
+      },
+      {
+        path: '/konfirmasi',
+        component: Konfirmasi
+      },
+      {
+        path: '/lunas',
+        component: Lunas
       },
       {
         path: '/daftar_peserta',

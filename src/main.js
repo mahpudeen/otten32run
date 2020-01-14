@@ -21,6 +21,7 @@ import '@/assets/css/style.css'
 import jQuery from 'jquery'
 global.jQuery = jQuery
 global.$ = jQuery
+global.WOW = jQuery
 
 import LoadScript from 'vue-plugin-load-script';
 Vue.use(LoadScript);

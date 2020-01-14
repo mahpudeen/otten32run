@@ -2,7 +2,7 @@
   <div>
     <!-- DIV JUDUL -->
     <div class="ibox-title">
-      <h5>Daftar User</h5>
+      <h5>Daftar Pembayaran Lunas</h5>
     </div>
     <div class="ibox-content">
       <!-- DIV BODY, MASUKIN CODINGAN DISINI (DALAM IBOX-CONTENT) -->
@@ -10,7 +10,7 @@
         <div id="main-wrapper" class="container">
           <div class="row">
             <div class="col-md-6 col-sm-6 col-12 mt-3 text-left">
-              <p>Jumlah user : <b> {{posts.length}} </b> orang</p>
+              <p>Peserta yang sudah dikonfirmasi : {{posts.length}} orang</p>
             </div>
 
             <div class="col-md-6 col-sm-6 col-12 mt-3 text-right">
@@ -57,7 +57,7 @@
                   <b-button
                     @click="confirm(row.item)"
                     size="lg"
-                    class="fa fa-trash fa-lg mr-1"
+                    class="fa fa-times-circle fa-lg mr-1"
                     variant="danger"
                     title="delete"
                   ></b-button>
@@ -111,7 +111,8 @@ export default {
         { key: "nama_lengkap", label: "Nama", sortable: true },
         { key: "email_user", label: "Email", sortable: true },
         { key: "nomor_hp", label: "Nomor HP", sortable: true },
-        { key: "actions", label: "Aksi", class: "text-center" }
+        { key: "level_akses", label: "Jumlah", sortable: true },
+        { key: "actions", label: "Cancel", class: "text-center" }
       ]
     };
   },

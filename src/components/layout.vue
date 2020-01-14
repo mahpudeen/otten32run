@@ -23,16 +23,37 @@
             <a href="#" @click="navigate('/admin')">
               <i class="fa fa-th-large"></i>
               <span class="nav-label">Dashboards</span>
-              <!-- <span class="fa arrow"></span> -->
             </a>
-            <!-- <ul class="nav nav-second-level">
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-money"></i>
+              <span class="nav-label">Pembayaran</span>
+              <span class="fa arrow"></span>
+            </a>
+            <ul class="nav nav-second-level collapse">
               <li>
-                <a href="index.html">Dashboard v.1</a>
+                <a href="#" @click="navigate('/konfirmasi')">Konfirmasi</a>
               </li>
               <li>
-                <a href="dashboard_2.html">Dashboard v.2</a>
+                <a href="#" @click="navigate('/lunas')">Lunas</a>
               </li>
-            </ul> -->
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-male"></i>
+              <span class="nav-label">Racepack</span>
+              <span class="fa arrow"></span>
+            </a>
+            <ul class="nav nav-second-level collapse">
+              <li>
+                <a href="#" @click="navigate('/lunas')">Pengambilan</a>
+              </li>
+              <li>
+                <a href="#" @click="navigate('/lunas')">Selesai</a>
+              </li>
+            </ul>
           </li>
           <li>
             <a href="#" @click="navigate('/daftar_peserta')">
@@ -45,98 +66,6 @@
               <i class="fa fa-user"></i>
               <span class="nav-label">Daftar User</span>
             </a>
-          </li>
-          
-          <li>
-            <a href="metrics.html">
-              <i class="fa fa-pie-chart"></i>
-              <span class="nav-label">Metrics</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              <i class="fa fa-bar-chart-o"></i>
-              <span class="nav-label">Graphs</span>
-              <span class="fa arrow"></span>
-            </a>
-            <ul class="nav nav-second-level collapse">
-              <li>
-                <a href="graph_flot.html">Flot Charts</a>
-              </li>
-              <li>
-                <a href="graph_morris.html">Morris.js Charts</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="mailbox.html">
-              <i class="fa fa-envelope"></i>
-              <span class="nav-label">Mailbox</span>
-              <span class="label label-warning float-right">16/24</span>
-            </a>
-            <ul class="nav nav-second-level collapse">
-              <li>
-                <a href="mailbox.html">Inbox</a>
-              </li>
-              <li>
-                <a href="mail_detail.html">Email view</a>
-              </li>
-              <li>
-                <a href="mail_compose.html">Compose email</a>
-              </li>
-              <li>
-                <a href="email_template.html">Email templates</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fa fa-desktop"></i>
-              <span class="nav-label">App Views</span>
-              <span class="float-right label label-primary">SPECIAL</span>
-            </a>
-            <ul class="nav nav-second-level collapse">
-              <li>
-                <a href="contacts.html">Contacts</a>
-              </li>
-              <li>
-                <a href="profile.html">Profile</a>
-              </li>
-              <li>
-                <a href="profile_2.html">Profile v.2</a>
-              </li>
-              <li>
-                <a href="contacts_2.html">Contacts v.2</a>
-              </li>
-              <li>
-                <a href="projects.html">Projects</a>
-              </li>
-              <li>
-                <a href="project_detail.html">Project detail</a>
-              </li>
-              <li>
-                <a href="pin_board.html">Pin board</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fa fa-globe"></i>
-              <span class="nav-label">Miscellaneous</span>
-              <span class="label label-info float-right">NEW</span>
-            </a>
-            <ul class="nav nav-second-level collapse">
-              <li>
-                <a href="toastr_notifications.html">Notification</a>
-              </li>
-              <li>
-                <a href="pdf_viewer.html">PDF viewer</a>
-              </li>
-              <li>
-                <a href="tour.html">Tour</a>
-              </li>
-            </ul>
           </li>
         </ul>
       </div>
@@ -151,17 +80,6 @@
             <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" href="#">
               <i class="fa fa-bars"></i>
             </a>
-            <form role="search" class="navbar-form-custom" action="search_results.html">
-              <div class="form-group">
-                <input
-                  type="text"
-                  placeholder
-                  class="form-control"
-                  name="top-search"
-                  id="top-search"
-                />
-              </div>
-            </form>
           </div>
 
           <!-- Modal -->
@@ -240,7 +158,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      mainProps : []
+      mainProps: []
     };
   },
   methods: {
@@ -252,7 +170,7 @@ export default {
       this.$router.push({ path: "/dashboard" });
     },
     navigate: function(page) {
-      this.$router.push({ path: page })
+      this.$router.push({ path: page });
     }
   }
 };
