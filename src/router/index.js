@@ -17,6 +17,7 @@ import User_Daftar from '../views/user_daftar.vue'
 import Konfirmasi from '../views/admin/konfirmasi_pembayaran.vue'
 import Lunas from '../views/admin/pembayaran_selesai.vue'
 import Pembayaran from '../views/user/pembayaran.vue'
+import Tiket from '../views/user/tiket.vue'
 
 Vue.use(VueRouter)
 
@@ -65,6 +66,7 @@ const routes = [
       { path: '/daftarpeserta', component: User_Daftar },
       { path: '/logged_user', component: Logged_User, name: 'logged_user' },
       { path: '/pembayaran', component: Pembayaran, name: 'pembayaran' },
+      { path: '/tiket', component: Tiket, name: 'tiket' },
     ]
   }
 ]
