@@ -13,12 +13,12 @@
           <ul class="nav navbar-nav navbar-right">
             <li>
               <a class="nav-link page-scroll" href="/login">
-                <div class="text">Login</div>
+                <div>Login</div>
               </a>
             </li>
             <li>
               <a class="nav-link page-scroll" href="#page-top">
-                <div class="text">Register</div>
+                <div>Register</div>
               </a>
             </li>
           </ul>
