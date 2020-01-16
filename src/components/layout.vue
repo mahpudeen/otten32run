@@ -48,10 +48,10 @@
             </a>
             <ul class="nav nav-second-level collapse">
               <li>
-                <a href="#" @click="navigate('/lunas')">Pengambilan</a>
+                <a href="#" @click="navigate('/racepack')">Pengambilan</a>
               </li>
               <li>
-                <a href="#" @click="navigate('/lunas')">Selesai</a>
+                <a href="#" @click="navigate('/racepackdone')">Selesai</a>
               </li>
             </ul>
           </li>
@@ -119,7 +119,7 @@
           </div>
           <ul class="nav navbar-top-links navbar-right">
             <li>
-              <a data-toggle="modal" data-target="#exampleModal">
+              <a data-toggle="modal" @click="logout()">
                 <i class="fa fa-sign-out"></i> Log out
               </a>
             </li>
@@ -155,6 +155,7 @@
 <script>
 // import menu_api from "../api/menu/index";
 import axios from "axios";
+import Swal from "sweetalert2";
 export default {
   data() {
     return {
@@ -163,8 +164,26 @@ export default {
   },
   methods: {
     logout: function() {
-      this.$session.destroy();
-      this.$router.push("/");
+      Swal.fire({
+        title: "Konfirmasi",
+        text: "Apakah anda yakin mau keluar?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Ya!",
+        cancelButtonText: "Tidak!"
+      }).then(result => {
+          if (result.value) {
+          localStorage.removeItem("idUser_active");
+          localStorage.removeItem("namaUser_active");
+          localStorage.removeItem("idUser_active");
+          localStorage.removeItem("levelUser_active");
+          localStorage.removeItem("emailUser_active");
+          localStorage.clear();
+          this.$router.push("/");
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+        }
+      });
+      
     },
     toHref: function() {
       this.$router.push({ path: "/dashboard" });

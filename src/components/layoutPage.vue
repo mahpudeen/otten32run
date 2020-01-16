@@ -12,9 +12,9 @@
                 </div>
                 <div class="collapse navbar-collapse justify-content-end" id="navbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a class="nav-link page-scroll" href="/">Home</a></li>
-                        <li><a class="nav-link page-scroll" href="/about">Tentang Kami</a></li>
-                        <li><a class="nav-link page-scroll" href="/rules">Peraturan</a></li>
+                        <li><a class="nav-link page-scroll" @click="navigate('/')" href="#features">Home</a></li>
+                        <li><a class="nav-link page-scroll" @click="navigate('/about')" href="#about">Tentang Kami</a></li>
+                        <li><a class="nav-link page-scroll" @click="navigate('/rules')" href="#rules">Peraturan</a></li>
                         <li><a href="/login">Login</a></li>
                         <li><a href="/register">Register</a></li>
                     </ul>
@@ -23,8 +23,36 @@
         </nav>
     </div>
     <div id="inSlider">
-        <div class="bannertop">
-            <b-img src="img/banner44.jpg" fluid-grow alt="Fluid-grow image"></b-img>
+        <div class="bannertop2" style="height:595px">
+            <!-- <b-img src="img/banner44.jpg" fluid-grow alt="Fluid-grow image"></b-img> -->
+            <b-carousel
+                id="carousel-1"
+                v-model="slide"
+                :interval="4000"
+                fade
+                style="text-shadow: 1px 1px 2px #333;"
+                @sliding-start="onSlideStart"
+                @sliding-end="onSlideEnd"
+                >
+                <!-- Text slides with image -->
+                
+                <!-- Slides with img slot -->
+                <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
+                <b-carousel-slide>
+                    <template v-slot:img>
+                        <a href="/#regis">
+                    <b-img src="img/register22.png" fluid-grow alt="Fluid-grow image"></b-img>
+                        </a>
+                    </template>
+                </b-carousel-slide>
+                <b-carousel-slide>
+                    <template v-slot:img>
+                    <b-img src="img/banner44.png" fluid-grow alt="Fluid-grow image"></b-img>
+                    </template>
+                </b-carousel-slide>
+
+            </b-carousel>
+
         </div>
     </div>
 
@@ -45,13 +73,17 @@
         </div>
     </section>
 
-    <div v-if="['home'].indexOf($route.name) > -1">
-        <div>
-            <a href="/register">
-                <b-img src="img/register.jpg" fluid-grow alt="Fluid-grow image"></b-img>
-            </a>
+    <section style="background-color : #092d5b" id="regis">
+        <div v-if="['home'].indexOf($route.name) > -1" style="text-align:center" class="pt-5 pb-5">
+            
+            <b-button pill variant="outline-light" style="height:100px;width:300px"><h1>REGISTER</h1></b-button>
+            <!-- <div>
+                <a href="/register">
+                    <b-img src="img/register.jpg" fluid-grow alt="Fluid-grow image"></b-img>
+                </a>
+            </div> -->
         </div>
-    </div>
+    </section>
 
     <section>
         <div class="container">
@@ -89,10 +121,23 @@
 <script>
 export default {
     data() {
-    return {
-      mainProps : []
-    };
-  },
+        return {
+        mainProps : [],
+        slide: 0,
+            sliding: null
+        };
+    },
+    methods: {
+      onSlideStart(slide) {
+        this.sliding = true
+      },
+      onSlideEnd(slide) {
+        this.sliding = false
+      },
+      navigate: function(page) {
+        this.$router.push({ path: page });
+      }
+    }
     
 }
 </script>

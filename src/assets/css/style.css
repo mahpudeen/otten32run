@@ -1497,6 +1497,10 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   .bannertop {
     margin-top: 50px;
   }
+  .bannertop2 {
+    margin-top: 50px;
+    margin-bottom: -412px;
+  }
 }
 @media (max-width: 768px) {
   .top-navigation .navbar-header {

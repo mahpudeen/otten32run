@@ -15,6 +15,8 @@ import Rules from '../views/landingpage/rules.vue'
 import Logged_User from '../views/user/logged_user.vue'
 import User_Daftar from '../views/user_daftar.vue'
 import Konfirmasi from '../views/admin/konfirmasi_pembayaran.vue'
+import Racepack from '../views/admin/racepack.vue'
+import Racepackdone from '../views/admin/racepackdone.vue'
 import Lunas from '../views/admin/pembayaran_selesai.vue'
 import Pembayaran from '../views/user/pembayaran.vue'
 import Tiket from '../views/user/tiket.vue'
@@ -48,7 +50,15 @@ const routes = [
       {
         path: '/daftar_user',
         component: Daftar_User
-      }
+      },
+      {
+        path: '/racepack',
+        component: Racepack
+      },
+      {
+        path: '/racepackdone',
+        component: Racepackdone
+      },
     ]
   },
   {
