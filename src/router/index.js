@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import layout from '../components/layout.vue'
 import layoutPage from '../components/layoutPage.vue'
 import layoutUser from '../components/layoutUser.vue'
+import layoutAuth from '../components/layoutAuth.vue'
 import Home from '../views/landingpage/landingpage.vue'
 import Register from '../views/register.vue'
 import Login from '../views/login.vue'
@@ -23,12 +24,47 @@ import Tiket from '../views/user/tiket.vue'
 
 Vue.use(VueRouter)
 
+const requireAuthAdmin = (to, from, next) => {
+
+  let userid= localStorage.getItem('idUser_active');
+  let username= localStorage.getItem('levelUser_active');
+  if (username !== '1' ) { 
+      alert('Maaf anda belum login/Anda bukan admin')
+      next({
+        path: '/login'
+    })
+  } 
+   else {
+    next()
+  }
+}
+const requireAuthUser = (to, from, next) => {
+
+  let userid= localStorage.getItem('idUser_active');
+  let username= localStorage.getItem('levelUser_active');
+  if (username !== '2') { 
+      alert('Maaf anda belum login/Anda bukan user')
+      next({
+        path: '/login'
+    })
+  } 
+   else {
+    next()
+  }
+}
+
 const routes = [
   // { path: '/', name: 'home', component: Home },
-  { path: '/register', component: Register, name: 'register' },
-  { path: '/login', component: Login, name: 'login' },
+  {
+    path: '/auth', component: layoutAuth,
+    children : [
+      { path: '/register', component: Register, name: 'register' },
+      { path: '/login', component: Login, name: 'login' },
+    ]
+  },
   {
     path: '/layout', component: layout, name: 'layout',
+    beforeEnter: requireAuthAdmin,
     children: [
       { path: '/pdf', component: PDF},
       {
@@ -71,6 +107,7 @@ const routes = [
   },
   {
     path: '', component: layoutUser,
+    beforeEnter: requireAuthUser,
     children: [
       { path: '/cetaktiket', component: PDF },
       { path: '/daftarpeserta', component: User_Daftar },

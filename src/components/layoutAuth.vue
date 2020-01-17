@@ -19,27 +19,15 @@
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="/logged_user">
-            <i class="fa fa-home"></i>
-            Home
+          <a class="nav-link" href="#register" @click="navigate('/register')">
+            <i class="fa fa-users"></i>
+            Register
           </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/pembayaran">
-            <i class="fa fa-money"></i>
-            Pembayaran
-          </a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/tiket">
-            <i class="fa fa-ticket"></i>
-            Tiket
-          </a>
-        </li>
-        <li class="nav-link">
-          <a class="nav-link" href="#" @click="logout">
-            <i class="fa fa-sign-out"></i>
-            Logout
+          <a class="nav-link" href="#login" @click="navigate('/login')">
+            <i class="fa fa-sign-in"></i>
+            Login
           </a>
         </li>
       </ul>
@@ -220,7 +208,6 @@
 
 <script>
 // import menu_api from "../api/menu/index";
-import Swal from "sweetalert2";
 import axios from "axios";
 export default {
   data() {
@@ -230,26 +217,12 @@ export default {
   },
   methods: {
     logout: function() {
-      Swal.fire({
-        title: "Konfirmasi",
-        text: "Apakah anda yakin mau keluar?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonText: "Ya!",
-        cancelButtonText: "Tidak!"
-      }).then(result => {
-          if (result.value) {
-          localStorage.removeItem("idUser_active");
-          localStorage.removeItem("namaUser_active");
-          localStorage.removeItem("idUser_active");
-          localStorage.removeItem("levelUser_active");
-          localStorage.removeItem("emailUser_active");
-          localStorage.clear();
-          this.$router.push("/");
-        } else if (result.dismiss === Swal.DismissReason.cancel) {
-        }
-      });
-      
+      localStorage.removeItem("idUser_active");
+      localStorage.removeItem("namaUser_active");
+      localStorage.removeItem("idUser_active");
+      localStorage.removeItem("levelUser_active");
+      localStorage.removeItem("emailUser_active");
+      this.$router.push({ path: "/" });
     },
     toHref: function() {
       this.$router.push({ path: "/dashboard" });

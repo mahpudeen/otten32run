@@ -109,8 +109,18 @@ export default {
       fields: [
         { key: "index", label: "No", class: "text-center" },
         { key: "nama_lengkap", label: "Nama", sortable: true },
+        { key: "nomor_identitas", label: "No. Identitas", sortable: true },
+        { key: "jenis_kelamin", label: "Jenis Kelamin", sortable: true },
+        { key: "alamat_user", label: "Alamat", sortable: true },
+        { key: "tempat_lahir", label: "Tempat", sortable: true },
+        { key: "tanggal_lahir", label: "Tgl Lahir", sortable: true },
+        { key: "golongan_darah", label: "Gol. Darah", sortable: true },
+        { key: "riwayat_kesehatan", label: "Riwayat Kesehatan", sortable: true },
+        { key: "riwayat_kesehatan_keluarga", label: "Riwayat Kesehatan Keluarga", sortable: true },
+        { key: "obat_pribadi", label: "Obat Pribadi", sortable: true },
         { key: "email_user", label: "Email", sortable: true },
         { key: "nomor_hp", label: "Nomor HP", sortable: true },
+        { key: "tgl_pendaftaran", label: "Tgl Daftar", sortable: true },
         { key: "actions", label: "Aksi", class: "text-center" }
       ]
     };
@@ -122,7 +132,7 @@ export default {
     // Our method to GET results from a Laravel endpoint
     getResults() {
       axios
-        .get("http://localhost/api/public/data_users/")
+        .get("http://localhost/api/public/data_peserta/")
 
         .then(response => {
           this.posts = response.data.data;

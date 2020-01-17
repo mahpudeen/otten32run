@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <div class="navy-line"></div>
-          <h1>HALO, {{nama_user}}</h1>
+          <h1>Halo, {{nama_user}}</h1>
           <div v-if="!isPeserta">
             <p>Ayo daftar menjadi peserta lari dengan cara mengisi form dibawah ini.</p>
           </div>
@@ -104,7 +104,7 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th scope="col" class="text-right">Nama Lengkap</th>
+                  <th scope="col-6" class="text-right">Nama Lengkap</th>
                   <td>{{data.nama_lengkap}}</td>
                 </tr>
               </thead>
@@ -265,7 +265,8 @@ export default {
         riwayat_kesehatan: "",
         riwayat_kesehatan_keluarga: "",
         obat_pribadi: "",
-        size_chart: ""
+        size_chart: "",
+        tgl_pendaftaran: ""
       },
       selected: null,
       options: [
@@ -329,6 +330,7 @@ export default {
       self.param.tanggal_lahir = moment(
         new Date(self.param.tanggal_lahir)
       ).format("YYYY-MM-DD");
+      self.param.tgl_pendaftaran = moment(new Date());
       Swal.fire({
         title: "Konfirmasi",
         text: "Apakah Anda yakin telah mengisi dengan benar?",

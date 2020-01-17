@@ -1,6 +1,6 @@
 <template>
 <body id="page-top" class="landing-page">
-  <div class="navbar-wrapper">
+  <!-- <div class="navbar-wrapper">
     <nav class="navbar navbar-default navbar-fixed-top navbar-expand-md" role="navigation">
       <div class="container">
         <a class="navbar-brand" href="/">Otten32Run</a>
@@ -28,14 +28,14 @@
   </div>
   <div id="inSlider" class="bannertop">
     <b-img src="img/run.jpg" fluid-grow alt="Fluid-grow image"></b-img>
-  </div>
+  </div> -->
 
-  <section class="features" id="features">
+  <section class="features" id="login">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
           <div class="navy-line"></div>
-          <h1>LOGIN</h1>
+          <h1>Login</h1>
           <p>Silahkan login dengan email dan password yang telah anda daftarkan untuk melakukan pendaftaran sebagai peserta dan pembayaran.</p>
         </div>
       </div>
@@ -71,7 +71,7 @@
       </div>
     </div>
   </section>
-  <div class="kontak">
+  <!-- <div class="kontak">
     <section id="contact" class="gray-section contact" style="margin-top:-20px">
       <div class="container">
         <div class="row m-b-lg">
@@ -112,13 +112,12 @@
             <p>
               <strong>&copy; 2020 Otten 32 Run</strong>
               <br />
-              <!-- consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. -->
             </p>
           </div>
         </div>
       </div>
     </section>
-  </div>
+  </div> -->
 </body>
 </template>
 <style>
@@ -169,6 +168,7 @@ export default {
             const level = localStorage.getItem('levelUser_active');
             if (level === '1' || level === 1) {
               self.$router.push({ path : '/admin'})
+              window.location.reload(true);
             } else if (level === '2' || level === 2) {
               self.$router.push({ path : '/logged_user'})
             }

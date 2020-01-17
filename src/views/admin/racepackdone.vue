@@ -50,15 +50,13 @@
                 :per-page="perPage"
               >
                 <template v-slot:cell(index)="data">{{ data.index + 1 }}</template>
-                <template v-slot:cell(level_akses)="row">
-                  Rp. {{ row.value }}
-                </template>
+                
                 <template v-slot:cell(actions)="row">
                   <b-button
                     @click="confirm(row.item)"
                     size="lg"
-                    class="fa fa-check-circle fa-lg mr-1"
-                    variant="primary"
+                    class="fa fa-times-circle fa-lg mr-1"
+                    variant="danger"
                     title="delete"
                   ></b-button>
                 </template>
@@ -111,9 +109,13 @@ export default {
         { key: "nama_lengkap", label: "Nama", sortable: true },
         { key: "email_user", label: "Email", sortable: true },
         { key: "nomor_hp", label: "Nomor HP", sortable: true },
-        { key: "level_akses", label: "Jumlah", sortable: true },
-        { key: "actions", label: "Konfirmasi", class: "text-center" }
-      ]
+        { key: "size_chart", label: "Ukuran", sortable: true },
+        { key: "actions", label: "Cancel", class: "text-center" }
+      ],
+      param: {
+        id_user: "",
+        status_racepack : ""
+      }
     };
   },
   mounted() {
@@ -123,7 +125,7 @@ export default {
     // Our method to GET results from a Laravel endpoint
     getResults() {
       axios
-        .get("http://localhost/api/public/data_users/")
+        .get("http://localhost/api/public/users_racepack_y/")
 
         .then(response => {
           this.posts = response.data.data;
@@ -133,12 +135,13 @@ export default {
     confirm(item) {
       let self = this;
       let param = {
-        id_user: item.id_user
+        id_user: item.id_user,
+        status_racepack : 'N'
       };
       Swal.fire({
         title: "Konfirmasi",
         text:
-          "Apakah " + item.nama_lengkap + " sudah melakukan pembayaran?",
+          "Apakah mau membatalkan status pengambilan racepack " + item.nama_lengkap + " ?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonText: "Ya!",
@@ -146,7 +149,7 @@ export default {
       }).then(result => {
         if (result.value) {
           self.$http
-            .post("http://localhost/api/public/del_user/", param)
+            .post("http://localhost/api/public/update_racepack/", param)
             .then(function(datas) {
               return datas;
             })
@@ -156,7 +159,7 @@ export default {
               );
               Swal.fire(
                 "Berhasil!",
-                item.nama_lengkap + " sudah dikonfirmasi!",
+                "Status pengambilan racepack" + item.nama_lengkap + " dibatalkan!",
                 "success"
               );
             })
@@ -164,7 +167,7 @@ export default {
               console.log(err);
               Swal.fire(
                 "Gagal!",
-                item.nama_lengkap + " belum terkonfirmasi!",
+                "Status pengambilan racepack "+ item.nama_lengkap + " gagal diupdate!",
                 "error"
               );
             });

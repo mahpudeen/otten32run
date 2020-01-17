@@ -15,8 +15,8 @@
                         <li><a class="nav-link page-scroll" @click="navigate('/')" href="#features">Home</a></li>
                         <li><a class="nav-link page-scroll" @click="navigate('/about')" href="#about">Tentang Kami</a></li>
                         <li><a class="nav-link page-scroll" @click="navigate('/rules')" href="#rules">Peraturan</a></li>
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/register">Register</a></li>
+                        <li><a href="#login" @click="navigate('/login')">Login</a></li>
+                        <li><a href="#register" @click="navigate('/register')">Register</a></li>
                     </ul>
                 </div>
             </div>
@@ -76,7 +76,7 @@
     <section style="background-color : #092d5b" id="regis">
         <div v-if="['home'].indexOf($route.name) > -1" style="text-align:center" class="pt-5 pb-5">
             
-            <b-button pill variant="outline-light" style="height:100px;width:300px"><h1>REGISTER</h1></b-button>
+            <b-button pill variant="outline-light" style="height:100px;width:300px" @click="navigate('/register')" href="#register"><h1 style="margin-top:25px">REGISTER</h1></b-button>
             <!-- <div>
                 <a href="/register">
                     <b-img src="img/register.jpg" fluid-grow alt="Fluid-grow image"></b-img>

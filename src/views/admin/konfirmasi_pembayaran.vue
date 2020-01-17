@@ -10,7 +10,7 @@
         <div id="main-wrapper" class="container">
           <div class="row">
             <div class="col-md-6 col-sm-6 col-12 mt-3 text-left">
-              <p>Peserta yang belum dikonfirmasi : {{posts.length}} orang</p>
+              <p>Peserta yang belum dikonfirmasi : <b>{{posts.length}}</b> orang</p>
             </div>
 
             <div class="col-md-6 col-sm-6 col-12 mt-3 text-right">
@@ -50,8 +50,8 @@
                 :per-page="perPage"
               >
                 <template v-slot:cell(index)="data">{{ data.index + 1 }}</template>
-                <template v-slot:cell(level_akses)="row">
-                  Rp. {{ row.value }}
+                <template v-slot:cell(total_bayar)="row">
+                  Rp. {{ formatPrice(row.value) }}
                 </template>
                 <template v-slot:cell(actions)="row">
                   <b-button
@@ -59,7 +59,7 @@
                     size="lg"
                     class="fa fa-check-circle fa-lg mr-1"
                     variant="primary"
-                    title="delete"
+                    title="konfirmasi"
                   ></b-button>
                 </template>
               </b-table>
@@ -111,19 +111,27 @@ export default {
         { key: "nama_lengkap", label: "Nama", sortable: true },
         { key: "email_user", label: "Email", sortable: true },
         { key: "nomor_hp", label: "Nomor HP", sortable: true },
-        { key: "level_akses", label: "Jumlah", sortable: true },
+        { key: "total_bayar", label: "Jumlah", sortable: true },
         { key: "actions", label: "Konfirmasi", class: "text-center" }
-      ]
+      ],
+      param: {
+        id_user: "",
+        status_bayar : ""
+      }
     };
   },
   mounted() {
     this.getResults();
   },
   methods: {
+    formatPrice(value) {
+        let val = (value/1).toFixed(0).replace('.', ',')
+        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+    },
     // Our method to GET results from a Laravel endpoint
     getResults() {
       axios
-        .get("http://localhost/api/public/data_users/")
+        .get("http://localhost/api/public/users_blmbayar/")
 
         .then(response => {
           this.posts = response.data.data;
@@ -133,7 +141,8 @@ export default {
     confirm(item) {
       let self = this;
       let param = {
-        id_user: item.id_user
+        id_user: item.id_user,
+        status_bayar : "lunas"
       };
       Swal.fire({
         title: "Konfirmasi",
@@ -146,7 +155,7 @@ export default {
       }).then(result => {
         if (result.value) {
           self.$http
-            .post("http://localhost/api/public/del_user/", param)
+            .post("http://localhost/api/public/update_pembayaran/", param)
             .then(function(datas) {
               return datas;
             })

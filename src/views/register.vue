@@ -1,6 +1,6 @@
 <template>
 <body id="page-top" class="landing-page">
-  <div class="navbar-wrapper">
+  <!-- <div class="navbar-wrapper">
     <nav class="navbar navbar-default navbar-fixed-top navbar-expand-md" role="navigation">
       <div class="container">
         <a class="navbar-brand" href="/">Otten32Run</a>
@@ -28,9 +28,9 @@
   </div>
   <div id="inSlider" class="bannertop">
     <b-img src="img/run.jpg" fluid-grow alt="Fluid-grow image"></b-img>
-  </div>
+  </div> -->
 
-  <section class="features" id="features">
+  <section class="features" id="register">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -129,15 +129,14 @@
       </div>
     </div>
   </section>
-  <div class="kontak">
+  <!-- <div class="kontak">
     <section id="contact" class="gray-section contact" style="margin-top:-20px">
       <div class="container">
         <div class="row m-b-lg">
           <div class="col-lg-12 text-center">
             <div class="navy-line"></div>
             <h1>Contact Us</h1>
-            <!-- <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p> -->
-          </div>
+            </div>
         </div>
         <div class="row m-b-lg justify-content-center">
           <div class="col-lg-3"></div>
@@ -171,13 +170,12 @@
             <p>
               <strong>&copy; 2020 Otten 32 Run</strong>
               <br />
-              <!-- consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. -->
             </p>
           </div>
         </div>
       </div>
     </section>
-  </div>
+  </div> -->
 </body>
 </template>
 <style>
