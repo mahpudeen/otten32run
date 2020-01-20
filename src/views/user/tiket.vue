@@ -9,20 +9,25 @@
         </div>
       </div>
       <br />
-
       <div>
-        <div v-if="status_bayar === 'pending'">
-          <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8 text-center">
-              <strong class="rek">MAAF ANDA BELUM MELAKUKAN PEMBAYARAN</strong>
+        <div v-if="status_bayar === null && data === null" class="text-center">
+          <strong
+            class="rek"
+          >Halo, {{nama_user}}. Kamu belum melakukan pendaftaran sebagai peserta. Silahkan daftar dihalaman home.</strong>
+        </div>
+        <div v-else>
+          <div v-if="status_bayar === 'lunas'" class="text-center">
+            <div class="text-center">
+              <a href="#" class="btn btn-primary">
+                <i class="fa fa-whatsapp"></i> DOWNLOAD TIKET
+              </a>
             </div>
           </div>
-        </div>
-        <div v-else class="text-center">
-          <a href="#" class="btn btn-primary">
-            <i class="fa fa-whatsapp"></i> DOWNLOAD TIKET
-          </a>
+          <div v-else class="text-center">
+            <strong
+              class="rek"
+            >Halo, {{nama_user}}. Kamu belum melakukan pembayaran. Silahkan lakukan pembayaran dan konfirmasi dengan admin untuk mendapatkan Tiket Peserta.</strong>
+          </div>
         </div>
       </div>
     </div>
@@ -51,7 +56,12 @@ export default {
   },
   data() {
     return {
-      status_bayar: ""
+      nama_user: localStorage.getItem("namaUser_active"),
+      size_chart: "",
+      total_pembayaran: "",
+      id_user: "",
+      status_bayar: "",
+      data: []
     };
   },
   beforeCreate() {
@@ -67,7 +77,18 @@ export default {
       })
       .then(function(res) {
         const data = res.data.data;
-        self.status_bayar = data.status_bayar;
+        if (data !== null) {
+          self.total_pembayaran = new Intl.NumberFormat(["ban", "id"]).format(
+            data.total_bayar
+          );
+          self.id_user = data.id_user;
+          self.size_chart = data.size_chart;
+          self.status_bayar = data.status_bayar;
+          console.log('satt', self.status_bayar)
+        } else {
+          self.data = null;
+          self.status_bayar = null;
+        }
       })
       .catch(function(err) {
         console.log(err);

@@ -11,6 +11,8 @@
           </div>
         </div>
       </div>
+      <br />
+      <br />
       <div v-if="!isPeserta">
         <div class="login">
           <div class="row">
@@ -104,8 +106,8 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th scope="col-6" class="text-right">Nama Lengkap</th>
-                  <td>{{data.nama_lengkap}}</td>
+                  <th class="col-6 text-right">Nama Lengkap</th>
+                  <td class="col-6">{{data.nama_lengkap}}</td>
                 </tr>
               </thead>
               <thead>
@@ -192,6 +194,8 @@
       </div>
     </div>
   </section>
+  <br />
+  <br />
 </body>
 </template>
 <style>
