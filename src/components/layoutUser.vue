@@ -19,19 +19,19 @@
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="/logged_user">
+          <a class="nav-link" href="#logged_user" @click="navigate('/logged_user')">
             <i class="fa fa-home"></i>
             Home
           </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/pembayaran">
+          <a class="nav-link" href="#pembayaran" @click="navigate('/pembayaran')">
             <i class="fa fa-money"></i>
             Pembayaran
           </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/tiket">
+          <a class="nav-link" href="#tiket" @click="navigate('/tiket')">
             <i class="fa fa-ticket"></i>
             Tiket
           </a>

@@ -21,6 +21,7 @@ import Racepackdone from '../views/admin/racepackdone.vue'
 import Lunas from '../views/admin/pembayaran_selesai.vue'
 import Pembayaran from '../views/user/pembayaran.vue'
 import Tiket from '../views/user/tiket.vue'
+import LupaPassword from '../views/lupa_password'
 
 Vue.use(VueRouter)
 
@@ -60,6 +61,8 @@ const routes = [
     children : [
       { path: '/register', component: Register, name: 'register' },
       { path: '/login', component: Login, name: 'login' },
+      { path: '/lupapassword', component: LupaPassword, name: 'lupapassword' },
+      
     ]
   },
   {

@@ -1,6 +1,6 @@
 <template>
 <body id="page-top" class="landing-page">
-  <section class="features" id="features">
+  <section class="features" id="tiket">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">

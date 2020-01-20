@@ -10,7 +10,22 @@
         <div id="main-wrapper" class="container">
           <div class="row">
             <div class="col-md-6 col-sm-6 col-12 mt-3 text-left">
-              <p>Jumlah peserta yang daftar : <b> {{posts.length}} </b> orang</p>
+            <p>Jumlah peserta yang daftar : <b> {{posts.length}} </b> orang</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-sm-6 col-12 mt-3 text-left">
+              
+              <download-excel
+                class   = "btn btn-default"
+                :data   = "posts"
+                :fields = "json_fields"
+                type="csv"
+                :name    = "getFileName()">
+            
+                Download Excel
+            
+            </download-excel>
             </div>
 
             <div class="col-md-6 col-sm-6 col-12 mt-3 text-right">
@@ -106,6 +121,24 @@ export default {
       perPage: 10,
       totalRows: null,
       selectedID: null,
+      json_fields: {
+        'No. ID':'id_user',
+        'Nama Lengkap':'nama_lengkap',
+        'No. Identitas':'nomor_identitas',
+        'Jenis Kelamin':'jenis_kelamin',
+        'Alamat User':'alamat_user',
+        'Tempat Lahir':'tempat_lahir',
+        'Tgl Lahir':'tanggal_lahir',
+        'Gol. Darah':'golongan_darah',
+        'Riwayat Kesehatan':'riwayat_kesehatan',
+        'Riwayat Kesehatan Keluarga':'riwayat_kesehatan_keluarga',
+        'Obat Pribadi':'obat_pribadi',
+        'Email':'email_user',
+        'Nomor Handphone':'nomor_hp',
+        'Tanggal Pendaftaran':'tgl_pendaftaran',
+        
+
+      },
       fields: [
         { key: "index", label: "No", class: "text-center" },
         { key: "nama_lengkap", label: "Nama", sortable: true },
@@ -129,6 +162,20 @@ export default {
     this.getResults();
   },
   methods: {
+    getFileName() {
+      let date = new Date();
+      let month = date.getMonth() + 1 + "";
+      if (month.length === 1) month = "0" + month;
+      return (
+        "Daftar Peserta " +
+        date.getFullYear() +
+        "-" +
+        month +
+        "-" +
+        date.getDate() +
+        ".csv"
+      );
+    },
     // Our method to GET results from a Laravel endpoint
     getResults() {
       axios

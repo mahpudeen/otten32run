@@ -10,7 +10,15 @@
                         <i class="fa fa-bars"></i>
                     </button>
                 </div>
-                <div class="collapse navbar-collapse justify-content-end" id="navbar">
+                <div class="collapse navbar-collapse justify-content-end" id="navbar" v-if="level !== null">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="nav-link page-scroll" @click="navigate('/')" href="#features">Home</a></li>
+                        <li><a class="nav-link page-scroll" @click="navigate('/about')" href="#about">Tentang Kami</a></li>
+                        <li><a class="nav-link page-scroll" @click="navigate('/rules')" href="#rules">Peraturan</a></li>
+                        <li><a @click="navigate2()">Dashboard</a></li>
+                        </ul>
+                </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar" v-else>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="nav-link page-scroll" @click="navigate('/')" href="#features">Home</a></li>
                         <li><a class="nav-link page-scroll" @click="navigate('/about')" href="#about">Tentang Kami</a></li>
@@ -123,11 +131,17 @@ export default {
     data() {
         return {
         mainProps : [],
+        level : localStorage.getItem('levelUser_active'),
         slide: 0,
             sliding: null
         };
     },
+    beforeCreate() {
+        this.level = localStorage.getItem('levelUser_active');
+        console.log("ini level", this.level)
+    },
     methods: {
+      
       onSlideStart(slide) {
         this.sliding = true
       },
@@ -136,6 +150,16 @@ export default {
       },
       navigate: function(page) {
         this.$router.push({ path: page });
+      },
+      navigate2() {
+        let self = this
+        const level = localStorage.getItem('levelUser_active');
+        if (level === '1' || level === 1) {
+            self.$router.push({ path : '/admin'})
+            window.location.reload(true);
+        } else if (level === '2' || level === 2) {
+            self.$router.push({ path : '/logged_user'})
+        }
       }
     }
     

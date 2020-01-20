@@ -28,8 +28,13 @@
               </div>
               <div class="ibox-content" style="text-align:center">
                   <h1 class="no-margins">{{posts.jml2.jml_peserta}} Orang</h1>
+                  <div class="text-info" style="margin-top:15px"><b>{{posts.jml7.jml_daftar}}</b> pendaftar baru hari ini</div>
+                  <!-- <small>Pendaftar baru hari ini</small> -->
+                  <div>
                   <b-button variant="primary" style="margin-top:15px" to="/daftar_peserta#">Lihat</b-button>
               </div>
+              </div>
+              
           </div>
       </div>
       <div class="col-lg-6">
@@ -112,7 +117,6 @@ export default {
             .get("http://localhost/api/public/landing_admin/")
             .then(response => {
             this.posts = response.data;
-            console.log("data,", this.posts)
             });
         },
     }

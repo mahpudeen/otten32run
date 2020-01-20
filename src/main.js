@@ -36,6 +36,10 @@ Vue.loadScript("/statics/js/landing.js")
 
 Vue.config.productionTip = false
 
+import JsonExcel from 'vue-json-excel'
+ 
+Vue.component('downloadExcel', JsonExcel)
+
 new Vue({
   router,
   store,
