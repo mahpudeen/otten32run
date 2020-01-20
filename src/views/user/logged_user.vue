@@ -1,6 +1,6 @@
 <template>
 <body id="page-top" class="landing-page">
-  <section class="features" id="features">
+  <section class="features" id="logged_user">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -292,7 +292,6 @@ export default {
         self.isPeserta = res.data.statusDaftar;
         if (self.isPeserta) {
           const ok = res.data.data;
-          console.log("laaah", ok);
           self.data.nama_lengkap = ok.nama_lengkap;
           self.data.email_user = ok.email_user;
           self.data.nomor_hp = ok.nomor_hp;

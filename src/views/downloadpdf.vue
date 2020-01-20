@@ -11,7 +11,7 @@
     <br>
     <button @click="download">Download PDF WITHOUT CSS</button>
     <div ref="content">
-      <!-- <img src="img/tiket.jpg" height="30px" width="50px"/> <br> -->
+      <img src="img/tiket.jpg" height="300px" width="600px"/> <br>
       Bebi yes beby yessssssas
     </div>
   </div>
