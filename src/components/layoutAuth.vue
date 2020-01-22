@@ -47,7 +47,9 @@
       <div class="row" style="margin-top: -25px;">
         <div class="col-lg-12 text-center">
           <button class="btn btn-primary2">
-            <img height="35px" width="95px" src="img/whatsapp.png" onclick="whatsap()" />
+            <a href="https://wa.me/6281310646737" target="_blank">
+              <img height="35px" width="95px" src="img/whatsapp.png" />
+            </a>
           </button>
           <p class="m-t-sm">Or follow us on social platform</p>
           <ul class="list-inline social-icon">

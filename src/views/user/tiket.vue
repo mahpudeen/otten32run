@@ -18,7 +18,10 @@
         <div v-else>
           <div v-if="status_bayar === 'lunas'" class="text-center">
             <div class="text-center">
-              <a href="#" class="btn btn-primary">
+              <!-- <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg" allowfullscreen></iframe>
+              </div> -->
+              <a href="https://wa.me/6281310646737" class="btn btn-primary">
                 <i class="fa fa-whatsapp"></i> DOWNLOAD TIKET
               </a>
             </div>
