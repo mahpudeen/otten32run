@@ -284,7 +284,7 @@ export default {
   beforeCreate() {
     let self = this;
     self.$http
-      .get("http://localhost/api/public/data_detail/", {
+      .get("http://35.187.253.244/api/public/data_detail/", {
         params: {
           id_user: localStorage.getItem("idUser_active")
         }
@@ -345,7 +345,7 @@ export default {
         if (result.value) {
           self.$http
             .post(
-              "http://localhost/api/public/daftar_jadi_peserta/",
+              "http://35.187.253.244/api/public/daftar_jadi_peserta/",
               self.param
             )
             .then(function(datas) {

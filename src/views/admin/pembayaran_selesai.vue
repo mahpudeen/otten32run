@@ -131,7 +131,7 @@ export default {
     // Our method to GET results from a Laravel endpoint
     getResults() {
       axios
-        .get("http://localhost/api/public/users_sdhbayar/")
+        .get("http://35.187.253.244/api/public/users_sdhbayar/")
 
         .then(response => {
           this.posts = response.data.data;
@@ -155,7 +155,7 @@ export default {
       }).then(result => {
         if (result.value) {
           self.$http
-            .post("http://localhost/api/public/update_pembayaran/", param)
+            .post("http://35.187.253.244/api/public/update_pembayaran/", param)
             .then(function(datas) {
               return datas;
             })

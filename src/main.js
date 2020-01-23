@@ -8,7 +8,7 @@ import axios from 'axios'
 import moment from 'moment'
 
 const base = axios.create({
-  baseURL: 'http://localhost/api/public'
+  baseURL: 'http://35.187.253.244/api/public'
 });
 Vue.prototype.$http = base;
 

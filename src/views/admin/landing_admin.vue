@@ -114,7 +114,7 @@ export default {
         // Our method to GET results from a Laravel endpoint
         getResults() {
         axios
-            .get("http://localhost/api/public/landing_admin/")
+            .get("http://35.187.253.244/api/public/landing_admin/")
             .then(response => {
             this.posts = response.data;
             });

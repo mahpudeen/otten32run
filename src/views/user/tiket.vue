@@ -70,7 +70,7 @@ export default {
   beforeCreate() {
     let self = this;
     self.$http
-      .get("http://localhost/api/public/cekDaftar/", {
+      .get("http://35.187.253.244/api/public/cekDaftar/", {
         params: {
           id_user: localStorage.getItem("idUser_active")
         }

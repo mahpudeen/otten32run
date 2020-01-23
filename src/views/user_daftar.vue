@@ -121,7 +121,7 @@ export default {
       }).then(result => {
         if (result.value) {
         //   self.$http
-        //     .post("http://localhost/api/public/regis_user/", self.param)
+        //     .post("http://35.187.253.244/api/public/regis_user/", self.param)
         //     .then(function(datas) {
         //       return datas;
         //     })
