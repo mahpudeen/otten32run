@@ -65,21 +65,8 @@
           </button>
           <p class="m-t-sm">Or follow us on social platform</p>
           <ul class="list-inline social-icon">
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fa fa-twitter"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fa fa-facebook"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fa fa-linkedin"></i>
-              </a>
-            </li>
+            <li class="list-inline-item"><a href="https://www.instagram.com/otten32run/"><i class="fa fa-instagram"></i></a>
+                        </li>
           </ul>
           <p>
             <strong>&copy; 2020 Otten32Run</strong>
@@ -225,6 +212,7 @@
 import Swal from "sweetalert2";
 import axios from "axios";
 export default {
+  title: 'Dashboard User',
   data() {
     return {
       menus: []

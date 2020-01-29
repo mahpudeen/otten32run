@@ -58,6 +58,8 @@
                 striped
                 hover
                 responsive
+                :sort-by.sync="sortBy"
+                :sort-desc.sync="sortDesc"
                 :items="posts"
                 :fields="fields"
                 :filter="filter"
@@ -117,22 +119,30 @@ export default {
       pageOptions: [5, 10, 15, 20, 50, 100, 500, 1000],
       posts: [],
       filter: null,
+      sortBy: 'tgl_pendaftaran',
+      sortDesc: true,
       currentPage: 1,
       perPage: 10,
       totalRows: null,
       selectedID: null,
       json_fields: {
-        'No. ID':'id_user',
+        'No. Peserta':'id_pendaftaran',
         'Nama Lengkap':'nama_lengkap',
         'No. Identitas':'nomor_identitas',
         'Jenis Kelamin':'jenis_kelamin',
         'Alamat User':'alamat_user',
         'Tempat Lahir':'tempat_lahir',
         'Tgl Lahir':'tanggal_lahir',
+        'Pekerjaan': 'pekerjaan',
+        'Institusi' : 'institusi',
         'Gol. Darah':'golongan_darah',
         'Riwayat Kesehatan':'riwayat_kesehatan',
         'Riwayat Kesehatan Keluarga':'riwayat_kesehatan_keluarga',
         'Obat Pribadi':'obat_pribadi',
+        'Size Baju':'size_chart',
+        'Total Bayar':'total_bayar',
+        'Status Pembayaran':'status_bayar',
+        'Racepack':'status_racepack',
         'Email':'email_user',
         'Nomor Handphone':'nomor_hp',
         'Tanggal Pendaftaran':'tgl_pendaftaran',
@@ -141,6 +151,7 @@ export default {
       },
       fields: [
         { key: "index", label: "No", class: "text-center" },
+        { key: "id_pendaftaran", label: "No. Peserta", sortable: true },
         { key: "nama_lengkap", label: "Nama", sortable: true },
         { key: "nomor_identitas", label: "No. Identitas", sortable: true },
         { key: "jenis_kelamin", label: "Jenis Kelamin", sortable: true },
@@ -148,6 +159,8 @@ export default {
         { key: "tempat_lahir", label: "Tempat", sortable: true },
         { key: "tanggal_lahir", label: "Tgl Lahir", sortable: true },
         { key: "golongan_darah", label: "Gol. Darah", sortable: true },
+        { key: "institusi", label: "Institusi", sortable: true },
+        { key: "pekerjaan", label: "Pekerjaan", sortable: true },
         { key: "riwayat_kesehatan", label: "Riwayat Kesehatan", sortable: true },
         { key: "riwayat_kesehatan_keluarga", label: "Riwayat Kesehatan Keluarga", sortable: true },
         { key: "obat_pribadi", label: "Obat Pribadi", sortable: true },
@@ -194,7 +207,7 @@ export default {
       Swal.fire({
         title: "Konfirmasi",
         text:
-          "Apakah " + item.nama_lengkap + " sudah melakukan pembayaran?",
+          "Apakah yakin mau menghapus " + item.nama_lengkap + " ?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonText: "Ya!",
@@ -212,7 +225,7 @@ export default {
               );
               Swal.fire(
                 "Berhasil!",
-                item.nama_lengkap + " sudah dikonfirmasi!",
+                item.nama_lengkap + " sudah dihapus!",
                 "success"
               );
             })
@@ -220,7 +233,7 @@ export default {
               console.log(err);
               Swal.fire(
                 "Gagal!",
-                item.nama_lengkap + " belum terkonfirmasi!",
+                item.nama_lengkap + " belum terhapus!",
                 "error"
               );
             });

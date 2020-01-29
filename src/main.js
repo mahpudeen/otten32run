@@ -40,6 +40,10 @@ import JsonExcel from 'vue-json-excel'
  
 Vue.component('downloadExcel', JsonExcel)
 
+import titleMixin from './titleMixin'
+
+Vue.mixin(titleMixin)
+
 new Vue({
   router,
   store,

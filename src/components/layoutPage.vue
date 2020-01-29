@@ -49,15 +49,22 @@
                 <b-carousel-slide>
                     <template v-slot:img>
                         <a href="/#regis">
-                    <b-img src="img/register22.png" fluid-grow alt="Fluid-grow image"></b-img>
+                    <b-img src="img/register.png" fluid-grow alt="Fluid-grow image"></b-img>
                         </a>
                     </template>
                 </b-carousel-slide>
                 <b-carousel-slide>
                     <template v-slot:img>
-                    <b-img src="img/banner44.png" fluid-grow alt="Fluid-grow image"></b-img>
+                    <b-img src="img/banner.png" fluid-grow alt="Fluid-grow image"></b-img>
                     </template>
                 </b-carousel-slide>
+                <!-- <b-carousel-slide>
+                    <template v-slot:img>
+                        <a href="/#regis">
+                    <b-img src="img/175.jpg" fluid-grow alt="Fluid-grow image"></b-img>
+                        </a>
+                    </template>
+                </b-carousel-slide> -->
 
             </b-carousel>
 
@@ -67,6 +74,7 @@
     <router-view/>
 
     <section class="bg-pricing">
+    <!-- <section > -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -74,6 +82,8 @@
                     <h1>Media Partners:</h1>
                     <p>
                         <b-img class="com-logos" src="img/sponsor/larikuinfo.jpg" v-bind="mainProps" rounded="circle" alt="Circle image"></b-img>
+                        <b-img class="com-logos" src="img/sponsor/infobdg.id.jpg" v-bind="mainProps" rounded="circle" alt="Circle image"></b-img>
+                        <b-img class="com-logos" src="img/sponsor/mqfm.jpeg" v-bind="mainProps" rounded="5" alt="Circle image"></b-img>
                         <!-- <img  class="rounded img-thumbnail" alt="..."> -->
                     </p>
                 </div>
@@ -112,11 +122,7 @@
                         Or follow us on social platform
                     </p>
                     <ul class="list-inline social-icon">
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/otten32run/"><i class="fa fa-instagram"></i></a>
                         </li>
                     </ul>
                     <p><strong>&copy; 2020 Otten32Run</strong></p>
@@ -130,6 +136,7 @@
 </template>
 <script>
 export default {
+    title: 'Otten32Run - FAST Learning Centre',
     data() {
         return {
         mainProps : [],

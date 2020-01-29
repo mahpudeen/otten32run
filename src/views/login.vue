@@ -92,7 +92,8 @@ export default {
           localStorage.setItem('idUser_active', data.id_user)
           localStorage.setItem('levelUser_active', data.level_akses)
           localStorage.setItem('emailUser_active', data.email_user)
-          Swal.fire("Berhasil!", "selamat datang!", "success")
+          const nama = localStorage.getItem('namaUser_active');
+          Swal.fire("Berhasil Login!", "Selamat datang "+nama+" !", "success")
           .then(function(){
             const level = localStorage.getItem('levelUser_active');
             if (level === '1' || level === 1) {

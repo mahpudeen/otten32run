@@ -137,7 +137,7 @@ export default {
       Swal.fire({
         title: "Konfirmasi",
         text:
-          "Apakah " + item.nama_lengkap + " sudah melakukan pembayaran?",
+          "Apakah yakin mau menghapus " + item.nama_lengkap + " ?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonText: "Ya!",
@@ -155,7 +155,7 @@ export default {
               );
               Swal.fire(
                 "Berhasil!",
-                item.nama_lengkap + " sudah dikonfirmasi!",
+                item.nama_lengkap + " sudah dihapus!",
                 "success"
               );
             })
@@ -163,7 +163,7 @@ export default {
               console.log(err);
               Swal.fire(
                 "Gagal!",
-                item.nama_lengkap + " belum terkonfirmasi!",
+                item.nama_lengkap + " belum terhapus!",
                 "error"
               );
             });

@@ -55,10 +55,26 @@
                 </strong>
                 <br />
                 <br />
-                <a href="https://wa.me/6285775000157" class="btn btn-primary">
+                <a href="https://wa.me/6281310646737" class="btn btn-primary">
                   <i class="fa fa-whatsapp"></i>
                   WHATSAPP ADMIN
                 </a>
+                <br />
+                <br />
+                <div>
+                  <b-form @submit="test">
+                    <b-form-group id="input-group-2" label="Masukan Voucher:" label-for="input-2">
+                      <b-form-input
+                        id="input-2"
+                        v-model="params.voucher"
+                        required
+                        placeholder="Masukan voucher"
+                      ></b-form-input>
+                    </b-form-group>
+                    
+                      <b-button variant="primary" type="submit">Submit</b-button>
+                  </b-form>
+                </div>
               </div>
             </div>
           </div>
@@ -91,7 +107,11 @@ export default {
       total_pembayaran: "",
       id_user: "",
       status_bayar: "",
-      data: []
+      data: [],
+      params: {
+          id_user: localStorage.getItem("idUser_active"),
+          voucher: ''
+        },
     };
   },
   beforeCreate() {
@@ -138,6 +158,49 @@ export default {
       localStorage.removeItem("levelUser_active");
       localStorage.removeItem("emailUser_active");
       this.$router.push({ path: "/" });
+    },
+    test(evt) {
+      evt.preventDefault();
+      let self = this;
+      
+      console.log("ini param",this.params)
+      Swal.fire({
+        title: "Konfirmasi",
+        text:
+          "Apakah voucher yang dimasukan sudah benar?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Ya!",
+        cancelButtonText: "Tidak!"
+      }).then(result => {
+        if (result.value) {
+          self.$http
+            .post("http://35.187.253.244/api/public/voucher/", this.params)
+            .then(function(datas) {
+              return datas;
+            })
+            .then(function(res) {
+              Swal.fire(
+                "Berhasil!", res.data.message,
+                "success"
+              ).then(
+                function() {
+                  window.location.reload(true);
+                }
+              );
+            })
+            .catch(function(err, res) {
+              console.log(err);
+              Swal.fire(
+                "Gagal!",
+                err.response.data.message,
+                "error"
+              );
+            });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          // Swal.fire("Cancelled", "Your imaginary file is safe :)", "error");
+        }
+      });
     }
   }
 };

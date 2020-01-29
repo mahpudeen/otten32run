@@ -106,6 +106,7 @@ export default {
       selectedID: null,
       fields: [
         { key: "index", label: "No", class: "text-center" },
+        { key: "id_pendaftaran", label: "No. Peserta", sortable: true },
         { key: "nama_lengkap", label: "Nama", sortable: true },
         { key: "email_user", label: "Email", sortable: true },
         { key: "nomor_hp", label: "Nomor HP", sortable: true },
@@ -159,7 +160,7 @@ export default {
               );
               Swal.fire(
                 "Berhasil!",
-                "Status pengambilan racepack" + item.nama_lengkap + " dibatalkan!",
+                "Status pengambilan racepack " + item.nama_lengkap + " dibatalkan!",
                 "success"
               );
             })

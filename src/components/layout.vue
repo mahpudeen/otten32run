@@ -16,7 +16,7 @@
               <span class="text-muted text-xs block">Admin</span>
             </div>
             <div class="logo-element">
-              <img src="statics/images/logodjp.png" width="40px" height="40px" />
+              <img src="statics/images/logofls.png" width="40px" height="40px" />
             </div>
           </li>
           <li class="oke">
@@ -25,6 +25,7 @@
               <span class="nav-label">Dashboards</span>
             </a>
           </li>
+
           <li>
             <a href="#">
               <i class="fa fa-money"></i>
@@ -118,6 +119,21 @@
             </div>
           </div>
           <ul class="nav navbar-top-links navbar-right">
+            <li class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell"></i>  <span class="label label-primary">{{posts.jml7.jml_daftar}}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#" class="dropdown-item" @click="navigate('/daftar_peserta')">
+                                <div>
+                                    <i class="fa fa-users fa-fw"></i> <b>{{posts.jml7.jml_daftar}}</b> pendaftar baru hari ini
+                                </div>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </li>
             <li>
               <a data-toggle="modal" @click="logout()">
                 <i class="fa fa-sign-out"></i> Log out
@@ -157,12 +173,26 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 export default {
+  title: 'Dashboard Admin',
   data() {
     return {
-      mainProps: []
+      mainProps: [],
+      posts: {
+                "jml7":{"jml_daftar":""}
+                },
     };
   },
+  mounted() {
+        this.getResults();
+    },
   methods: {
+    getResults() {
+        axios
+            .get("http://35.187.253.244/api/public/landing_admin/")
+            .then(response => {
+            this.posts = response.data;
+            });
+        },
     logout: function() {
       Swal.fire({
         title: "Konfirmasi",

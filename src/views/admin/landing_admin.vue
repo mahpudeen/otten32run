@@ -28,7 +28,7 @@
               </div>
               <div class="ibox-content" style="text-align:center">
                   <h1 class="no-margins">{{posts.jml2.jml_peserta}} Orang</h1>
-                  <div class="text-info" style="margin-top:15px"><b>{{posts.jml7.jml_daftar}}</b> pendaftar baru hari ini</div>
+                  <!-- <div class="text-info" style="margin-top:15px"><b>{{posts.jml7.jml_daftar}}</b> pendaftar baru hari ini</div> -->
                   <!-- <small>Pendaftar baru hari ini</small> -->
                   <div>
                   <b-button variant="primary" style="margin-top:15px" to="/daftar_peserta#">Lihat</b-button>
@@ -92,7 +92,7 @@ export default {
     data() {
         return {
             jml_user : null,
-            posts: [
+            posts: 
                 {
                 "status":"success",
                 "jml1":{"jml_user":""},
@@ -102,7 +102,6 @@ export default {
                 "jml5":{"jml_racepack_n":""},
                 "jml6":{"jml_racepack_y":""}
                 },
-            ],
             
             jml1:{"jml_user":""},
         }

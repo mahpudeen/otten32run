@@ -44,9 +44,14 @@
                 <textarea class="form-control" v-model="param.alamat_user" rows="3" required></textarea>
               </div>
               <div class="form-group">
-                <label>Obat Pribadi</label>
-                <textarea class="form-control" v-model="param.obat_pribadi" rows="3" required></textarea>
+                <label>Pekerjaan</label>
+                <textarea class="form-control" v-model="param.pekerjaan" rows="3" required></textarea>
               </div>
+              <div class="form-group">
+                <label>Institusi</label>
+                <textarea class="form-control" v-model="param.institusi" rows="3" required></textarea>
+              </div>
+              
             </div>
 
             <div class="col-lg-6 wow zoomIn">
@@ -56,13 +61,15 @@
                   <option selected>Pilih...</option>
                   <option value="A">A</option>
                   <option value="B">B</option>
-                  <option value="AB">C</option>
+                  <option value="AB">AB</option>
+                  <option value="O">O</option>
                 </select>
               </div>
               <div class="form-group">
                 <label>Size Chart Kaos</label>
                 <select class="custom-select" v-model="param.size_chart">
                   <option selected>Pilih...</option>
+                  <option value="XS">XS</option>
                   <option value="S">S</option>
                   <option value="M">M</option>
                   <option value="L">L</option>
@@ -74,6 +81,10 @@
                 <label>Tanggal Lahir</label>
                 <br />
                 <date-picker v-model="param.tanggal_lahir" valuetype="format" required></date-picker>
+              </div>
+              <div class="form-group">
+                <label>Obat Pribadi</label>
+                <textarea class="form-control" v-model="param.obat_pribadi" rows="3" required></textarea>
               </div>
               <div class="form-group">
                 <label>Riwayat Kesehatan</label>
@@ -106,8 +117,8 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th class="col-6 text-right">Nama Lengkap</th>
-                  <td class="col-6">{{data.nama_lengkap}}</td>
+                  <th class="text-right">Nama Lengkap</th>
+                  <td>{{data.nama_lengkap}}</td>
                 </tr>
               </thead>
               <thead>
@@ -160,6 +171,18 @@
               </thead>
               <thead>
                 <tr>
+                  <th scope="col" class="text-right">Institusi</th>
+                  <td>{{data.institusi}}</td>
+                </tr>
+              </thead>
+              <thead>
+                <tr>
+                  <th scope="col" class="text-right">Pekerjaan</th>
+                  <td>{{data.pekerjaan}}</td>
+                </tr>
+              </thead>
+              <thead>
+                <tr>
                   <th scope="col" class="text-right">Riwayat Kesehatan</th>
                   <td>{{data.riwayat_kesehatan}}</td>
                 </tr>
@@ -176,18 +199,7 @@
                   <td>{{data.obat_pribadi}}</td>
                 </tr>
               </thead>
-              <thead>
-                <tr>
-                  <th scope="col" class="text-right">Total Pembayaran</th>
-                  <td>{{data.total_bayar}}</td>
-                </tr>
-              </thead>
-              <thead>
-                <tr>
-                  <th scope="col" class="text-right">Status Pembayaran</th>
-                  <td>{{data.status_bayar}}</td>
-                </tr>
-              </thead>
+              
             </table>
           </div>
         </div>
@@ -255,7 +267,9 @@ export default {
           obat_pribadi: "",
           size_chart: "",
           total_bayar: "",
-          status_bayar: ""
+          status_bayar: "",
+          pekerjaan: "",
+          institusi: ""
         }
       ],
       param: {
@@ -270,14 +284,17 @@ export default {
         riwayat_kesehatan_keluarga: "",
         obat_pribadi: "",
         size_chart: "",
-        tgl_pendaftaran: ""
+        tgl_pendaftaran: "",
+        pekerjaan: "",
+        institusi: ""
       },
       selected: null,
       options: [
         { value: null, text: "Pilih..." },
         { value: "A", text: "A" },
         { value: "B", text: "B" },
-        { value: "AB", text: "AB" }
+        { value: "AB", text: "AB" },
+        { value: "O", text: "O" }
       ]
     };
   },
@@ -311,6 +328,8 @@ export default {
           self.data.size_chart = ok.size_chart;
           self.data.total_bayar = ok.total_bayar;
           self.data.status_bayar = ok.status_bayar;
+          self.data.institusi = ok.institusi;
+          self.data.pekerjaan = ok.pekerjaan;
         }
       })
       .catch(function(err) {
@@ -329,11 +348,11 @@ export default {
     },
     daftarPeserta() {
       let self = this;
-      console.log("data kirim", self.param);
-      self.param.tanggal_lahir = moment(
+      self.param.tanggal_lahir = (moment(
         new Date(self.param.tanggal_lahir)
-      ).format("YYYY-MM-DD");
-      self.param.tgl_pendaftaran = moment(new Date());
+      ).format("YYYY-MM-DD")).toString();
+      self.param.tgl_pendaftaran = (moment(new Date()).format("YYYY-MM-DD")).toString();
+      console.log("data kirim", self.param);
       Swal.fire({
         title: "Konfirmasi",
         text: "Apakah Anda yakin telah mengisi dengan benar?",

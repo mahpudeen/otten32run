@@ -115,10 +115,12 @@ export default {
               return datas;
             })
             .then(function(res) {
-              Swal.fire("Berhasil!", "Data berhasil disimpan! Silahkan Login", "success");
-              self.resetForm();
-              self.$router.push("login");
-              window.location.reload(true);
+              Swal.fire("Berhasil!", "Data berhasil disimpan! Silahkan Login", "success").then(
+                function() {
+                  self.$router.push("login");
+                  window.location.reload(true);
+                }
+              );
             })
             .catch(function(err) {
               console.log(err);

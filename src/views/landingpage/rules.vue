@@ -31,8 +31,8 @@
                         <li>Peserta wajib untuk mengetahui rute perlombaan, kesalahan rute merupakan tanggung jawab peserta.</li>
                         <li>Pengelola berhak menetapkan batas waktu atau <i>cut off time</i>, pengelola akan memberlakukan <i>cut off time</i> sebagai berikut:</li>
                             <ul type="disc">
-                                <li><i>Cut off time</i> 1 jam 30 menit untuk 5K</li>
-                                <li><i>Cut off time</i> 2 jam untuk 10K</li>
+                                <!-- <li><i>Cut off time</i> 1 jam 30 menit untuk 5K</li> -->
+                                <li><i>Cut off time</i> 2 jam untuk 5K</li>
                             </ul>
                         <li>Peserta yang tidak mencapai garis finish sebelum batas waktu <i>cut off time</i> yang telah ditetapkan akan dianggap tidak menyelesaikan perlombaan dan tidak berhak atas medali penamat.</li>
                         <li>Peserta dianggap memahami dan menyetujui, adanya resiko yang dapat muncul dari keikutsertaan dalam perlombaan dan tidak berhak menuntut atas segala kejadian yang dapat menyebabkan cedera tubuh, cacat bahkan kematian kepada pihak penyelenggara.</li>
