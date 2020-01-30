@@ -29,7 +29,10 @@
           <div v-else class="text-center">
             <strong
               class="rek"
-            >Halo, {{nama_user}}. Kamu belum melakukan pembayaran. Silahkan lakukan pembayaran dan konfirmasi dengan admin untuk mendapatkan Tiket Peserta.</strong>
+            >Terimkasih telah melakukan registrasi pada kegiatan Otten32run silahkan melakukan proses pembayaran dengan melakukan transfer sesuai dengan total pembayaran yang tertera pada halaman pembayaran KE REKENING BNI a.n LULU NURLIA KUSFANI 0456324335
+              <br>
+              <br>
+              Harap konfirmasi setelah proses pembayaran dilakukan dengan mengirimkan bukti transfer ke whatsapp admin. <br>Terima Kasih.</strong>
           </div>
         </div>
       </div>
