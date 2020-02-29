@@ -107,7 +107,7 @@ export default {
       totalRows: null,
       selectedID: null,
       fields: [
-        { key: "index", label: "No", class: "text-center" },
+        { key: "id_user", label: "Id User", sortable: true },
         { key: "nama_lengkap", label: "Nama", sortable: true },
         { key: "email_user", label: "Email", sortable: true },
         { key: "nomor_hp", label: "Nomor HP", sortable: true },

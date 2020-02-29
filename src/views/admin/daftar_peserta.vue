@@ -150,7 +150,6 @@ export default {
 
       },
       fields: [
-        { key: "index", label: "No", class: "text-center" },
         { key: "id_pendaftaran", label: "No. Peserta", sortable: true },
         { key: "nama_lengkap", label: "Nama", sortable: true },
         { key: "nomor_identitas", label: "No. Identitas", sortable: true },
